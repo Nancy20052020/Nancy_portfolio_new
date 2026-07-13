@@ -107,12 +107,6 @@ export function QuestAbout({ onNavigate }: Props) {
               />
               <div className="absolute inset-[10%_8%] flex flex-col items-center justify-center gap-1.5 text-center sm:inset-[12%_10%] sm:gap-2">
                 <p
-                  className="font-[family-name:var(--font-cinzel)] text-[0.65rem] font-semibold uppercase tracking-[0.16em] sm:text-xs"
-                  style={{ color: ink.accent }}
-                >
-                  Field credentials
-                </p>
-                <p
                   className="font-[family-name:var(--font-cinzel)] text-lg font-extrabold leading-tight sm:text-2xl"
                   style={{ color: ink.title }}
                 >
@@ -120,6 +114,9 @@ export function QuestAbout({ onNavigate }: Props) {
                 </p>
                 <p className="text-xs font-medium sm:text-sm" style={{ color: ink.body }}>
                   {profile.education.school}
+                </p>
+                <p className="text-[0.75rem] font-semibold sm:text-sm" style={{ color: ink.muted }}>
+                  {profile.education.years}
                 </p>
                 <div className="mt-1 grid w-full max-w-xs grid-cols-2 gap-3 text-xs sm:text-sm">
                   <div>
@@ -145,9 +142,6 @@ export function QuestAbout({ onNavigate }: Props) {
                     </p>
                   </div>
                 </div>
-                <p className="text-[0.7rem] font-medium sm:text-xs" style={{ color: ink.muted }}>
-                  {profile.education.years}
-                </p>
               </div>
             </div>
           </motion.div>
