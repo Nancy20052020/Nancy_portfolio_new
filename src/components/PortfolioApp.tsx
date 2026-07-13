@@ -103,7 +103,7 @@ export function PortfolioApp() {
             Menu
           </button>
           <p className="font-[family-name:var(--font-cinzel)] text-sm font-semibold tracking-wide">
-            TREADURE
+            Nancy Verma
           </p>
         </div>
 
