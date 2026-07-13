@@ -3,6 +3,7 @@ export type QuestId =
   | "about"
   | "skills"
   | "projects"
+  | "publications"
   | "experience"
   | "achievements"
   | "contact";
@@ -44,9 +45,18 @@ export const QUESTS: {
     description: "Forest manor of builds",
   },
   {
+    id: "publications",
+    label: "Publications & Patents",
+    questNumber: 4,
+    pinColor: "#7c3aed",
+    mapPosition: { x: 58, y: 34 },
+    pinSrc: "/quest/pin-publications.png",
+    description: "Scrolls of discovery",
+  },
+  {
     id: "experience",
     label: "Experience",
-    questNumber: 4,
+    questNumber: 5,
     pinColor: "#c9a227",
     mapPosition: { x: 16, y: 66 },
     pinSrc: "/quest/pin-experience.png",
@@ -55,7 +65,7 @@ export const QUESTS: {
   {
     id: "achievements",
     label: "Achievements",
-    questNumber: 5,
+    questNumber: 6,
     pinColor: "#d97706",
     mapPosition: { x: 46, y: 40 },
     pinSrc: "/quest/pin-achievements.png",
@@ -64,7 +74,7 @@ export const QUESTS: {
   {
     id: "contact",
     label: "Contact",
-    questNumber: 6,
+    questNumber: 7,
     pinColor: "#c45c5c",
     mapPosition: { x: 84, y: 68 },
     pinSrc: "/quest/pin-contact.png",
@@ -76,6 +86,7 @@ export const QUEST_ORDER: QuestId[] = [
   "about",
   "skills",
   "projects",
+  "publications",
   "experience",
   "achievements",
   "contact",
@@ -86,6 +97,7 @@ export const MAP_PATH_ORDER: Exclude<QuestId, "map">[] = [
   "about",
   "skills",
   "achievements",
+  "publications",
   "projects",
   "experience",
   "contact",
@@ -139,7 +151,7 @@ export const projects: {
   {
     title: "AutEye",
     description:
-      "Web platform leveraging eye-tracking data and ML models for early autism detection — improving accessibility and awareness.",
+      "Eye-tracking + ML for early autism screening — clearer insights for caregivers and clinicians.",
     tech: ["Python", "Flask", "ML", "JavaScript"],
     links: {
       github: "https://github.com/Nancy20052020",
@@ -151,7 +163,7 @@ export const projects: {
   {
     title: "PrepPilot",
     description:
-      "Conversational Q&A over multiple PDFs with OpenAI GPT-3.5 and ElevenLabs TTS for spoken answers.",
+      "Study buddy that answers across PDFs with GPT-3.5 and speaks replies via ElevenLabs TTS.",
     tech: ["Python", "Flask", "OpenAI", "ElevenLabs"],
     links: {
       github: "https://github.com/Nancy20052020",
@@ -161,9 +173,21 @@ export const projects: {
     layout: "center",
   },
   {
+    title: "Multi PDF Bot",
+    description:
+      "Toolkit to merge, split, compress, convert, and protect PDFs — a handy multi-document companion.",
+    tech: ["Python", "Flask", "PDF", "JavaScript"],
+    links: {
+      github: "https://github.com/Nancy20052020",
+    },
+    accent: "#7c3aed",
+    postcard: "/quest/project-multipdf.webp",
+    layout: "center",
+  },
+  {
     title: "Drought Sentinel",
     description:
-      "Remote sensing drought analysis on Google Earth Engine — satellite imagery workflows from the India Space Academy GIS internship (P1).",
+      "Earth Engine drought analysis from the India Space Academy GIS internship (P1).",
     tech: ["GEE", "Remote Sensing", "GIS", "JS"],
     links: {
       earthEngine: "https://code.earthengine.google.com/1f478591ab593ffe9bcde0a27be6fc48",
@@ -176,7 +200,7 @@ export const projects: {
   {
     title: "Urban Pulse",
     description:
-      "Urban GIS & Earth Engine exploration mapping city signals — companion quest from the remote sensing internship (P2).",
+      "Urban GIS & Earth Engine maps of city signals — companion quest from the remote sensing internship (P2).",
     tech: ["GEE", "GIS", "Python", "Mapping"],
     links: {
       earthEngine: "https://code.earthengine.google.com/170c492464d96e8cc66d885f25702049",
@@ -268,15 +292,22 @@ export const achievements = [
   },
 ];
 
-export const publications = [
+export const publicationsAndPatents: {
+  kind: "Publication" | "Patent";
+  title: string;
+  venue: string;
+  result: string;
+}[] = [
   {
+    kind: "Publication",
     title: "Enhancing Fish Species Recognition: Deep Learning Models Evaluation",
     venue: "IEEE ICDSNS 2024",
     result: "95%+ accuracy across ResNet, VGG16, InceptionV3, and CNN",
   },
   {
-    title: "Multi-country Patent: Autism Detection through Eye Tracking",
+    kind: "Patent",
+    title: "Autism Detection through Eye Tracking",
     venue: "Indian & German Patent",
-    result: "Eye-tracking system for early ASD detection in children",
+    result: "Multi-country patent for an eye-tracking system enabling early ASD detection in children",
   },
 ];

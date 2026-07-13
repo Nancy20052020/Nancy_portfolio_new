@@ -9,6 +9,7 @@ import { MapLanding } from "@/components/quests/MapLanding";
 import { QuestAbout } from "@/components/quests/QuestAbout";
 import { QuestSkills } from "@/components/quests/QuestSkills";
 import { QuestProjects } from "@/components/quests/QuestProjects";
+import { QuestPublications } from "@/components/quests/QuestPublications";
 import { QuestExperience } from "@/components/quests/QuestExperience";
 import { QuestAchievements } from "@/components/quests/QuestAchievements";
 import { QuestContact } from "@/components/quests/QuestContact";
@@ -136,6 +137,7 @@ export function PortfolioApp() {
                 {current === "about" && <QuestAbout onNavigate={navigate} />}
                 {current === "skills" && <QuestSkills onNavigate={navigate} />}
                 {current === "projects" && <QuestProjects onNavigate={navigate} />}
+                {current === "publications" && <QuestPublications onNavigate={navigate} />}
                 {current === "experience" && <QuestExperience onNavigate={navigate} />}
                 {current === "achievements" && <QuestAchievements onNavigate={navigate} />}
                 {current === "contact" && <QuestContact onNavigate={navigate} />}

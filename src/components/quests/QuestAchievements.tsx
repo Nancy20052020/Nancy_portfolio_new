@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Code2, Map as MapIcon, Medal, Star, Trophy } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
 import { Typewriter } from "@/components/Typewriter";
-import { achievements, publications, type QuestId } from "@/data/portfolio";
+import { achievements, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
@@ -27,6 +27,7 @@ const ICONS = {
 
 export function QuestAchievements({ onNavigate }: Props) {
   const next = nextQuest("achievements");
+  const total = QUEST_ORDER.length;
 
   return (
     <section className="relative min-h-[calc(100svh-3.5rem)] md:min-h-screen">
@@ -46,7 +47,7 @@ export function QuestAchievements({ onNavigate }: Props) {
         <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl" style={{ color: ink.accent }}>
-              Quest 5 of 6
+              Quest 6 of {total}
             </p>
             <h2
               className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"
@@ -70,7 +71,7 @@ export function QuestAchievements({ onNavigate }: Props) {
             speed={28}
           />
           <p className="mt-1 text-sm" style={{ color: ink.body }}>
-            Honors, patents, and publications collected along the trail.
+            Honors and milestones collected along the trail.
           </p>
         </div>
 
@@ -106,28 +107,6 @@ export function QuestAchievements({ onNavigate }: Props) {
               </motion.article>
             );
           })}
-        </div>
-
-        <div className="mt-4 space-y-3">
-          <h4
-            className="font-[family-name:var(--font-cinzel)] text-xs font-semibold uppercase tracking-wider"
-            style={{ color: ink.accent }}
-          >
-            Publications & Patents
-          </h4>
-          {publications.map((pub) => (
-            <article key={pub.title} className="quest-exp-card rounded-2xl p-4">
-              <p className="font-semibold" style={{ color: ink.title }}>
-                {pub.title}
-              </p>
-              <p className="mt-1 text-sm font-medium" style={{ color: ink.accent }}>
-                {pub.venue}
-              </p>
-              <p className="mt-1 text-sm" style={{ color: ink.body }}>
-                {pub.result}
-              </p>
-            </article>
-          ))}
         </div>
 
         <footer className="safe-bottom mt-4 flex flex-wrap items-center justify-between gap-3">
