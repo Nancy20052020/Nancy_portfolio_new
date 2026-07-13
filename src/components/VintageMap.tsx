@@ -145,7 +145,7 @@ export function VintageMap({ onSelect, activeId }: VintageMapProps) {
           key={`label-${quest.id}`}
           type="button"
           onClick={() => onSelect(quest.id)}
-          className="absolute -translate-x-1/2 rounded-md px-1.5 py-0.5 text-[0.65rem] font-semibold tracking-wide shadow-sm sm:text-xs"
+          className="absolute -translate-x-1/2 map-pin-label rounded-md px-1.5 py-0.5 text-[0.65rem] font-semibold tracking-wide shadow-sm sm:text-xs"
           style={{
             left: `${quest.mapPosition.x}%`,
             top: `calc(${quest.mapPosition.y}% + 1.1rem)`,

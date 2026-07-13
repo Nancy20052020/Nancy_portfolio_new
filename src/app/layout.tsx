@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Caveat, Cinzel, Literata } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
@@ -30,6 +30,21 @@ export const metadata: Metadata = {
     description: "Every great journey starts with a quest.",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "TREADURE — Nancy Verma",
+    description: "Every great journey starts with a quest.",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3e6c9" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a2233" },
+  ],
 };
 
 export default function RootLayout({

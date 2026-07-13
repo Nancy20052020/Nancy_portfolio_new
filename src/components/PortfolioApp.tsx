@@ -76,7 +76,7 @@ export function PortfolioApp() {
       />
 
       <div className="md:pl-[18rem]">
-        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[color:var(--card-border)] bg-[color:var(--sidebar)]/90 px-4 py-3 backdrop-blur md:hidden">
+        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[color:var(--card-border)] bg-[color:var(--sidebar)]/90 px-4 py-3 backdrop-blur safe-top md:hidden">
           <button
             type="button"
             className="btn-ghost !px-3"
