@@ -82,11 +82,15 @@ export function Sidebar({
               className="banner-asset h-auto w-full"
               unoptimized
             />
-            <div className="absolute inset-x-[12%] top-[16%] flex flex-col items-center text-center text-[#fff8e6]">
-              <p className="font-[family-name:var(--font-cinzel)] text-[0.72rem] font-bold leading-tight tracking-[0.04em]">
-                {profile.brand}
-              </p>
-              <p className="mt-1 text-[0.58rem] leading-tight opacity-95">{profile.tagline}</p>
+            <div className="absolute inset-x-[10%] top-[15%] flex flex-col items-center text-center">
+              <div className="banner-title-plate rounded-md px-2 py-1.5">
+                <p className="banner-title-text font-[family-name:var(--font-cinzel)] text-[0.78rem] font-extrabold leading-tight tracking-[0.02em]">
+                  {profile.brand}
+                </p>
+                <p className="banner-subtitle-text mt-1 text-[0.62rem] font-semibold leading-tight">
+                  {profile.tagline}
+                </p>
+              </div>
             </div>
           </div>
 
