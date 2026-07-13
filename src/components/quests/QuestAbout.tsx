@@ -7,17 +7,10 @@ import { nextQuest } from "@/components/QuestChrome";
 import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { profile, QUEST_ORDER, type QuestId } from "@/data/portfolio";
+import { ink } from "@/lib/questInk";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
-};
-
-/** Fixed ink colors — About parchment art is always light, even in dark theme */
-const ink = {
-  title: "#1f140c",
-  body: "#3a2a1c",
-  muted: "#5a4532",
-  accent: "#5b2d91",
 };
 
 export function QuestAbout({ onNavigate }: Props) {
@@ -36,6 +29,7 @@ export function QuestAbout({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <div className="quest-bg-wash" aria-hidden />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-6xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
@@ -57,7 +51,7 @@ export function QuestAbout({ onNavigate }: Props) {
               alt={`${profile.name} illustrated portrait`}
               width={720}
               height={640}
-              className="h-auto w-full drop-shadow-2xl"
+              className="portrait-float h-auto w-full drop-shadow-2xl"
               priority
               unoptimized
             />

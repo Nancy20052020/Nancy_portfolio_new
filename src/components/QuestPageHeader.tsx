@@ -1,7 +1,9 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { motion } from "framer-motion";
 import { Map as MapIcon } from "lucide-react";
+import { ink } from "@/lib/questInk";
 
 type Props = {
   questLabel: string;
@@ -10,16 +12,16 @@ type Props = {
   actions?: ReactNode;
 };
 
-const ink = {
-  title: "#1f140c",
-  accent: "#5b2d91",
-};
-
 /** High-contrast title tab so quest labels stay readable on parchment art */
 export function QuestPageHeader({ questLabel, title, onBackToMap, actions }: Props) {
   return (
     <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
-      <div className="quest-title-tab rounded-2xl px-4 py-2.5 sm:px-5">
+      <motion.div
+        initial={{ opacity: 0, y: -10, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="quest-title-tab rounded-2xl px-4 py-2.5 sm:px-5"
+      >
         <p
           className="font-[family-name:var(--font-caveat)] text-lg leading-none sm:text-xl"
           style={{ color: ink.accent }}
@@ -32,15 +34,20 @@ export function QuestPageHeader({ questLabel, title, onBackToMap, actions }: Pro
         >
           {title}
         </h2>
-      </div>
-      <div className="flex items-center gap-2">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 12 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.12, duration: 0.4 }}
+        className="flex items-center gap-2"
+      >
         {actions}
         <button type="button" className="btn-ghost shrink-0" onClick={onBackToMap}>
           <MapIcon size={16} aria-hidden />
           <span className="sm:hidden">Map</span>
           <span className="hidden sm:inline">Back to Map</span>
         </button>
-      </div>
+      </motion.div>
     </header>
   );
 }

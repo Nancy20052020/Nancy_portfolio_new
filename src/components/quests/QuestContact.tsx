@@ -6,16 +6,10 @@ import { ArrowLeft, FolderGit2, Link2, Mail, MapPin, Phone } from "lucide-react"
 import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { profile, QUEST_ORDER, type QuestId } from "@/data/portfolio";
+import { ink } from "@/lib/questInk";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
-};
-
-const ink = {
-  title: "#1f140c",
-  body: "#3a2a1c",
-  muted: "#5a4532",
-  accent: "#5b2d91",
 };
 
 export function QuestContact({ onNavigate }: Props) {
@@ -33,6 +27,7 @@ export function QuestContact({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <div className="quest-bg-wash" aria-hidden />
         <span className="mystical-mist left-[6%] top-[22%] h-28 w-28" aria-hidden />
         <span className="mystical-mist right-[10%] top-[30%] h-36 w-36" style={{ animationDelay: "1.6s" }} aria-hidden />
         <span className="mystical-spark left-[18%] top-[40%]" aria-hidden />
