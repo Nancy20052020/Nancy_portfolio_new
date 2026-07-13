@@ -49,6 +49,7 @@ export function Sidebar({
 }: SidebarProps) {
   const { theme, toggleTheme } = useTheme();
   const items = [{ id: "map" as QuestId, label: "Map", pinColor: "#c9a227" }, ...QUESTS];
+  const isNight = theme === "dark";
 
   return (
     <>
@@ -70,19 +71,24 @@ export function Sidebar({
         aria-label="Quest navigation"
       >
         <div className="quest-sidebar-inner flex h-full flex-col">
+          <span className="night-star left-[18%] top-[8%]" style={{ animationDelay: "0.4s" }} aria-hidden />
+          <span className="night-star right-[22%] top-[14%]" style={{ animationDelay: "1.2s" }} aria-hidden />
+          <span className="night-star left-[42%] top-[22%]" style={{ animationDelay: "2.1s" }} aria-hidden />
+          <span className="night-star right-[14%] bottom-[28%]" style={{ animationDelay: "0.9s" }} aria-hidden />
+
           <div
             className={`flex items-start gap-2 px-3 pt-4 ${
               collapsed ? "md:justify-center" : "justify-between"
             }`}
           >
             <div className={`min-w-0 ${collapsed ? "md:hidden" : ""} flex-1 pt-1`}>
-              <p className="font-[family-name:var(--font-caveat)] text-base leading-none text-[#5b2d91]">
+              <p className="quest-sidebar-brand font-[family-name:var(--font-caveat)] text-base leading-none">
                 Explorer&apos;s Journal
               </p>
-              <p className="mt-1 font-[family-name:var(--font-cinzel)] text-lg font-extrabold tracking-wide text-[#1f140c]">
+              <p className="quest-sidebar-title mt-1 font-[family-name:var(--font-cinzel)] text-lg font-extrabold tracking-wide">
                 {profile.brand}
               </p>
-              <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#8a6a1a]">
+              <p className="quest-sidebar-tag mt-0.5 text-xs font-semibold uppercase tracking-[0.14em]">
                 {profile.tagline}
               </p>
             </div>
@@ -108,7 +114,7 @@ export function Sidebar({
 
           {collapsed && (
             <div className="mt-3 hidden justify-center md:flex" aria-hidden>
-              <span className="font-[family-name:var(--font-cinzel)] text-[0.7rem] font-bold tracking-[0.2em] text-[#5b2d91]">
+              <span className="quest-sidebar-brand font-[family-name:var(--font-cinzel)] text-[0.7rem] font-bold tracking-[0.2em]">
                 NV
               </span>
             </div>
@@ -141,7 +147,7 @@ export function Sidebar({
                   aria-current={active ? "page" : undefined}
                 >
                   <span
-                    className="quest-nav-gem"
+                    className={`quest-nav-gem ${active ? "quest-gem-pulse" : ""}`}
                     style={{
                       background: `radial-gradient(circle at 35% 30%, #fff8e6, ${pinColor})`,
                       boxShadow: active
@@ -152,15 +158,15 @@ export function Sidebar({
                     <Icon size={14} aria-hidden color="#1f140c" />
                   </span>
                   <span className={`min-w-0 ${collapsed ? "md:hidden" : ""}`}>
-                    <span className="block font-[family-name:var(--font-cinzel)] text-sm font-semibold tracking-wide text-[#1f140c]">
+                    <span className="quest-nav-label block font-[family-name:var(--font-cinzel)] text-sm font-semibold tracking-wide">
                       {item.label}
                     </span>
                     {item.id !== "map" && "questNumber" in item ? (
-                      <span className="block font-[family-name:var(--font-caveat)] text-xs text-[#5b2d91]">
+                      <span className="quest-nav-meta block font-[family-name:var(--font-caveat)] text-xs">
                         Quest {item.questNumber}
                       </span>
                     ) : (
-                      <span className="block font-[family-name:var(--font-caveat)] text-xs text-[#5b2d91]">
+                      <span className="quest-nav-meta block font-[family-name:var(--font-caveat)] text-xs">
                         Chart {index + 1}
                       </span>
                     )}
@@ -176,18 +182,22 @@ export function Sidebar({
               type="button"
               onClick={toggleTheme}
               className={`quest-nav-item w-full ${collapsed ? "md:justify-center md:!px-2" : "justify-center"}`}
-              aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
-              title={theme === "light" ? "Night Chart" : "Day Chart"}
+              aria-label={isNight ? "Switch to day chart (light theme)" : "Switch to night chart (dark theme)"}
+              title={isNight ? "Day Chart" : "Night Chart"}
               suppressHydrationWarning
             >
-              {theme === "light" ? <Moon size={16} color="#5b2d91" /> : <Sun size={16} color="#a67c1a" />}
+              {isNight ? (
+                <Sun size={16} color="var(--gold)" />
+              ) : (
+                <Moon size={16} color="var(--quest-ink-accent)" />
+              )}
               <span
-                className={`font-[family-name:var(--font-cinzel)] text-sm font-semibold text-[#1f140c] ${
+                className={`quest-nav-label font-[family-name:var(--font-cinzel)] text-sm font-semibold ${
                   collapsed ? "md:hidden" : ""
                 }`}
                 suppressHydrationWarning
               >
-                {theme === "light" ? "Night Chart" : "Day Chart"}
+                {isNight ? "Day Chart" : "Night Chart"}
               </span>
             </button>
           </div>
