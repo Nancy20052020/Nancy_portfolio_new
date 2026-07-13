@@ -229,8 +229,28 @@ body {
 .banner-asset {
   filter: drop-shadow(0 8px 18px rgba(40, 20, 10, 0.28));
   mix-blend-mode: normal;
-  /* knockout residual black plate from source art */
-  -webkit-mask-image: linear-gradient(#000 0 0);
+}
+
+.banner-title-plate {
+  background: rgba(12, 4, 24, 0.88);
+  border: 1.5px solid rgba(232, 197, 71, 0.65);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 248, 230, 0.12);
+  backdrop-filter: blur(3px);
+}
+
+.banner-title-text {
+  color: #fff8e6;
+  letter-spacing: 0.01em;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 1),
+    0 0 12px rgba(232, 197, 71, 0.45);
+}
+
+.banner-subtitle-text {
+  color: #ffe08a;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
 }
 
 .compass-asset {
