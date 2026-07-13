@@ -226,8 +226,37 @@ body {
   animation: path-dash 18s linear infinite;
 }
 
-.map-quest-pin {
-  filter: drop-shadow(0 4px 8px rgba(40, 20, 10, 0.35));
+.banner-asset {
+  filter: drop-shadow(0 8px 18px rgba(40, 20, 10, 0.28));
+  mix-blend-mode: normal;
+  /* knockout residual black plate from source art */
+  -webkit-mask-image: linear-gradient(#000 0 0);
+}
+
+.compass-asset {
+  filter: drop-shadow(0 6px 14px rgba(40, 20, 10, 0.3));
+  opacity: 0.92;
+}
+
+.map-cta-dock {
+  background: color-mix(in srgb, var(--surface-elevated) 88%, transparent);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 28px var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+@supports (background: color-mix(in srgb, black 50%, white)) {
+  .banner-asset,
+  .compass-asset {
+    /* Prefer screen blend so black PNG plates vanish over parchment */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .banner-asset,
+  .compass-asset {
+    mix-blend-mode: normal;
+  }
 }
 
 button:hover .map-quest-pin,
