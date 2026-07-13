@@ -25,7 +25,7 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.65 }}
-        className="pointer-events-none absolute left-3 top-3 z-20 w-[7.25rem] sm:left-5 sm:top-5 sm:w-[9.5rem] md:w-[11rem]"
+        className="pointer-events-none absolute left-3 top-3 z-20 w-[8rem] sm:left-5 sm:top-5 sm:w-[10.5rem] md:w-[12rem]"
       >
         <div className="relative">
           <Image
@@ -37,13 +37,15 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
             priority
             unoptimized
           />
-          <div className="absolute inset-x-[12%] top-[16%] flex flex-col items-center text-center text-[#fff8e6]">
-            <p className="font-[family-name:var(--font-cinzel)] text-[0.7rem] font-bold leading-tight tracking-[0.03em] sm:text-[0.85rem] md:text-[0.95rem]">
-              {profile.brand}
-            </p>
-            <p className="mt-1 text-[0.55rem] leading-tight opacity-95 sm:text-[0.7rem]">
-              {profile.tagline}
-            </p>
+          <div className="absolute inset-x-[10%] top-[15%] flex flex-col items-center text-center">
+            <div className="banner-title-plate rounded-md px-2 py-1.5 sm:px-2.5 sm:py-2">
+              <p className="banner-title-text font-[family-name:var(--font-cinzel)] text-[0.78rem] font-extrabold leading-tight tracking-[0.02em] sm:text-[0.95rem] md:text-[1.05rem]">
+                {profile.brand}
+              </p>
+              <p className="banner-subtitle-text mt-1 text-[0.62rem] font-semibold leading-tight sm:text-[0.75rem]">
+                {profile.tagline}
+              </p>
+            </div>
           </div>
         </div>
       </motion.div>
