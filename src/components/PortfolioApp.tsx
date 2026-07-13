@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
-import { Menu } from "lucide-react";
+import { Menu, PanelLeft } from "lucide-react";
 import { Sidebar } from "@/components/Sidebar";
 import { MapLanding } from "@/components/quests/MapLanding";
 import { QuestAbout } from "@/components/quests/QuestAbout";
@@ -24,12 +24,24 @@ export function PortfolioApp() {
     return "map";
   });
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
   const navigate = useCallback((id: QuestId) => {
     setCurrent(id);
     window.history.replaceState(null, "", id === "map" ? "#" : `#${id}`);
   }, []);
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem("treadure-sidebar");
+    if (stored === "collapsed") {
+      queueMicrotask(() => setCollapsed(true));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("treadure-sidebar", collapsed ? "collapsed" : "open");
+  }, [collapsed]);
 
   useEffect(() => {
     const onHash = () => {
@@ -73,9 +85,13 @@ export function PortfolioApp() {
         onNavigate={navigate}
         mobileOpen={mobileOpen}
         onCloseMobile={() => setMobileOpen(false)}
+        collapsed={collapsed}
+        onToggleCollapsed={() => setCollapsed((v) => !v)}
       />
 
-      <div className="md:pl-[18rem]">
+      <div
+        className={`transition-[padding] duration-300 ${collapsed ? "md:pl-[4.5rem]" : "md:pl-[18rem]"}`}
+      >
         <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[color:var(--card-border)] bg-[color:var(--sidebar)]/90 px-4 py-3 backdrop-blur safe-top md:hidden">
           <button
             type="button"
@@ -90,6 +106,18 @@ export function PortfolioApp() {
             TREADURE
           </p>
         </div>
+
+        {/* Desktop expand affordance when collapsed */}
+        {collapsed && (
+          <button
+            type="button"
+            className="btn-ghost fixed left-[4.75rem] top-4 z-40 hidden !min-h-9 !px-2 md:inline-flex"
+            onClick={() => setCollapsed(false)}
+            aria-label="Expand sidebar"
+          >
+            <PanelLeft size={16} />
+          </button>
+        )}
 
         <main id="main-quest" className="min-h-screen" tabIndex={-1}>
           <div ref={stageRef} className="min-h-[calc(100vh-3.5rem)] md:min-h-screen">
