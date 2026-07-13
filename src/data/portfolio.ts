@@ -297,17 +297,25 @@ export const publicationsAndPatents: {
   title: string;
   venue: string;
   result: string;
+  summary: string;
+  highlights: string[];
 }[] = [
   {
     kind: "Publication",
     title: "Enhancing Fish Species Recognition: Deep Learning Models Evaluation",
     venue: "IEEE ICDSNS 2024",
     result: "95%+ accuracy across ResNet, VGG16, InceptionV3, and CNN",
+    summary:
+      "Compared deep CNN architectures for underwater fish classification, documenting trade-offs between accuracy, training cost, and deployment readiness for marine monitoring.",
+    highlights: ["Deep Learning", "Computer Vision", "ResNet / VGG / Inception", "IEEE"],
   },
   {
     kind: "Patent",
     title: "Autism Detection through Eye Tracking",
     venue: "Indian & German Patent",
     result: "Multi-country patent for an eye-tracking system enabling early ASD detection in children",
+    summary:
+      "Filed a multi-country patent covering an eye-tracking pipeline that surfaces early autism-related gaze signals for caregivers and clinicians — sibling work to the AutEye project.",
+    highlights: ["Eye Tracking", "ASD Screening", "India + Germany", "Assistive Tech"],
   },
 ];
