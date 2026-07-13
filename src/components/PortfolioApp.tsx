@@ -91,19 +91,19 @@ export function PortfolioApp() {
       />
 
       <div
-        className={`transition-[padding] duration-300 ${collapsed ? "md:pl-[4.5rem]" : "md:pl-[18rem]"}`}
+        className={`transition-[padding] duration-300 ${collapsed ? "md:pl-[4.75rem]" : "md:pl-[18rem]"}`}
       >
-        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[color:var(--card-border)] bg-[color:var(--sidebar)]/90 px-4 py-3 backdrop-blur safe-top md:hidden">
+        <div className="quest-mobile-bar sticky top-0 z-30 flex items-center justify-between gap-3 px-4 py-3 safe-top md:hidden">
           <button
             type="button"
-            className="btn-ghost !px-3"
+            className="quest-sidebar-icon-btn !min-h-10 !min-w-auto gap-2 !rounded-full !px-3"
             onClick={() => setMobileOpen(true)}
             aria-label="Open quest menu"
           >
             <Menu size={18} />
             Menu
           </button>
-          <p className="font-[family-name:var(--font-cinzel)] text-sm font-semibold tracking-wide">
+          <p className="font-[family-name:var(--font-cinzel)] text-sm font-semibold tracking-wide text-[#1f140c]">
             Nancy Verma
           </p>
         </div>
