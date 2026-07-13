@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowLeft, FolderGit2, Link2, Mail, Map as MapIcon, MapPin, Phone } from "lucide-react";
 import { Typewriter } from "@/components/Typewriter";
-import { profile, type QuestId } from "@/data/portfolio";
+import { profile, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
@@ -17,6 +18,8 @@ const ink = {
 };
 
 export function QuestContact({ onNavigate }: Props) {
+  const total = QUEST_ORDER.length;
+
   return (
     <section className="relative min-h-[calc(100svh-3.5rem)] md:min-h-screen">
       <div className="absolute inset-0 overflow-hidden">
@@ -35,7 +38,7 @@ export function QuestContact({ onNavigate }: Props) {
         <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl" style={{ color: ink.accent }}>
-              Quest 6 of 6
+              Quest {total} of {total}
             </p>
             <h2
               className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"
@@ -51,7 +54,7 @@ export function QuestContact({ onNavigate }: Props) {
           </button>
         </header>
 
-        <div className="grid flex-1 items-start gap-5 pb-2 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div className="grid flex-1 items-center gap-5 pb-2 lg:grid-cols-[1.05fr_0.95fr]">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,15 +126,22 @@ export function QuestContact({ onNavigate }: Props) {
             </div>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.25, duration: 0.6 }}
-            className="quest-art-panel hidden rounded-2xl px-4 py-4 text-sm leading-relaxed lg:block"
-            style={{ color: ink.muted }}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.55 }}
+            className="mx-auto w-full max-w-md"
           >
-            The sealed envelope waits at the lighthouse — seal your message and set a new course together.
-          </motion.p>
+            <Image
+              src="/quest/letters.webp"
+              alt="Sealed parchment letters with purple wax"
+              width={900}
+              height={602}
+              className="h-auto w-full"
+              style={{ filter: "drop-shadow(0 16px 28px rgba(40, 20, 10, 0.35))" }}
+              unoptimized
+            />
+          </motion.div>
         </div>
 
         <footer className="safe-bottom mt-4 flex flex-wrap items-center justify-between gap-3">
