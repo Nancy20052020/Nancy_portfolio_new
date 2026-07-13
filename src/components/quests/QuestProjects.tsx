@@ -2,8 +2,9 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Map as MapIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
+import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { projects, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
@@ -42,32 +43,21 @@ export function QuestProjects({ onNavigate }: Props) {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-6xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
-        <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl" style={{ color: ink.accent }}>
-              Quest 3 of {total}
-            </p>
-            <h2
-              className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"
-              style={{ color: ink.title }}
-            >
-              Projects
-            </h2>
-          </div>
-          <div className="flex items-center gap-2">
-            <button type="button" className="btn-ghost !min-h-10 !px-3" onClick={() => scrollBy(-1)} aria-label="Previous projects">
-              <ChevronLeft size={18} />
-            </button>
-            <button type="button" className="btn-ghost !min-h-10 !px-3" onClick={() => scrollBy(1)} aria-label="Next projects">
-              <ChevronRight size={18} />
-            </button>
-            <button type="button" className="btn-ghost shrink-0" onClick={() => onNavigate("map")}>
-              <MapIcon size={16} aria-hidden />
-              <span className="sm:hidden">Map</span>
-              <span className="hidden sm:inline">Back to Map</span>
-            </button>
-          </div>
-        </header>
+        <QuestPageHeader
+          questLabel={`Quest 3 of ${total}`}
+          title="Projects"
+          onBackToMap={() => onNavigate("map")}
+          actions={
+            <>
+              <button type="button" className="btn-ghost !min-h-10 !px-3" onClick={() => scrollBy(-1)} aria-label="Previous projects">
+                <ChevronLeft size={18} />
+              </button>
+              <button type="button" className="btn-ghost !min-h-10 !px-3" onClick={() => scrollBy(1)} aria-label="Next projects">
+                <ChevronRight size={18} />
+              </button>
+            </>
+          }
+        />
 
         <div className="projects-copy-panel mb-4 rounded-2xl px-4 py-3 sm:px-5">
           <Typewriter
@@ -109,11 +99,11 @@ export function QuestProjects({ onNavigate }: Props) {
               <div
                 className={`absolute inset-x-[10%] flex flex-col ${
                   project.layout === "lower"
-                    ? "bottom-[14%] top-[38%]"
+                    ? "bottom-[12%] top-[42%]"
                     : "bottom-[16%] top-[28%]"
                 }`}
               >
-                <div className="flex h-full flex-col items-center justify-center gap-2 px-1 text-center">
+                <div className="flex h-full flex-col items-center justify-end gap-2 px-1 pb-2 text-center sm:justify-center sm:pb-0">
                   <h4
                     className="font-[family-name:var(--font-cinzel)] text-lg font-extrabold leading-tight sm:text-xl"
                     style={{ color: ink.title }}

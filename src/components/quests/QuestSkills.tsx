@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Code2, Cpu, HeartHandshake, Map as MapIcon, Wrench } from "lucide-react";
+import { ArrowLeft, ArrowRight, Code2, Cpu, HeartHandshake, Wrench } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
+import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { skills, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
@@ -63,24 +64,11 @@ export function QuestSkills({ onNavigate }: Props) {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-6xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
-        <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl" style={{ color: ink.accent }}>
-              Quest 2 of {total}
-            </p>
-            <h2
-              className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"
-              style={{ color: ink.title }}
-            >
-              Skills
-            </h2>
-          </div>
-          <button type="button" className="btn-ghost shrink-0" onClick={() => onNavigate("map")}>
-            <MapIcon size={16} aria-hidden />
-            <span className="sm:hidden">Map</span>
-            <span className="hidden sm:inline">Back to Map</span>
-          </button>
-        </header>
+        <QuestPageHeader
+          questLabel={`Quest 2 of ${total}`}
+          title="Skills"
+          onBackToMap={() => onNavigate("map")}
+        />
 
         <div className="quest-art-panel mb-4 rounded-2xl px-4 py-3 sm:px-5">
           <Typewriter

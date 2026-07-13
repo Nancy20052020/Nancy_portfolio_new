@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, FileText, Map as MapIcon, ScrollText } from "lucide-react";
+import { ArrowLeft, ArrowRight, FileText, ScrollText } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
+import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { publicationsAndPatents, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
@@ -36,24 +37,11 @@ export function QuestPublications({ onNavigate }: Props) {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-6xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
-        <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl" style={{ color: ink.accent }}>
-              Quest 4 of {total}
-            </p>
-            <h2
-              className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"
-              style={{ color: ink.title }}
-            >
-              Publications & Patents
-            </h2>
-          </div>
-          <button type="button" className="btn-ghost shrink-0" onClick={() => onNavigate("map")}>
-            <MapIcon size={16} aria-hidden />
-            <span className="sm:hidden">Map</span>
-            <span className="hidden sm:inline">Back to Map</span>
-          </button>
-        </header>
+        <QuestPageHeader
+          questLabel={`Quest 4 of ${total}`}
+          title="Publications & Patents"
+          onBackToMap={() => onNavigate("map")}
+        />
 
         <div className="quest-art-panel mb-4 rounded-2xl px-4 py-3 sm:px-5">
           <Typewriter
@@ -70,30 +58,29 @@ export function QuestPublications({ onNavigate }: Props) {
         <div className="grid flex-1 gap-4 pb-2 lg:grid-cols-2">
           {publicationsAndPatents.map((item, i) => {
             const Icon = item.kind === "Patent" ? ScrollText : FileText;
+            const accent = item.kind === "Patent" ? "#7c3aed" : ink.accent;
             return (
               <motion.article
                 key={item.title}
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i }}
-                className="quest-exp-card flex flex-col rounded-2xl p-5"
+                className="quest-relic-card flex flex-col rounded-2xl p-5 pl-6"
               >
                 <div className="mb-3 flex items-center gap-2">
                   <span
-                    className="flex h-10 w-10 items-center justify-center rounded-full"
+                    className="flex h-11 w-11 items-center justify-center rounded-full"
                     style={{
-                      background: item.kind === "Patent" ? "rgba(124, 58, 237, 0.16)" : "rgba(91, 45, 145, 0.14)",
-                      color: ink.accent,
+                      background: `${accent}22`,
+                      color: accent,
+                      boxShadow: `0 0 0 1px ${accent}44`,
                     }}
                   >
                     <Icon size={18} aria-hidden />
                   </span>
                   <span
                     className="rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide"
-                    style={{
-                      background: item.kind === "Patent" ? "#7c3aed" : ink.accent,
-                      color: "#fff8e6",
-                    }}
+                    style={{ background: accent, color: "#fff8e6" }}
                   >
                     {item.kind}
                   </span>
@@ -104,7 +91,7 @@ export function QuestPublications({ onNavigate }: Props) {
                 >
                   {item.title}
                 </h4>
-                <p className="mt-2 text-sm font-semibold" style={{ color: ink.accent }}>
+                <p className="mt-2 text-sm font-semibold" style={{ color: accent }}>
                   {item.venue}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: ink.body }}>

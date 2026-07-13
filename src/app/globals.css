@@ -131,17 +131,17 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   cursor: pointer;
-  background: linear-gradient(180deg, var(--banner-light), var(--btn-primary));
-  color: var(--btn-primary-text);
-  box-shadow: 0 6px 16px var(--glow);
+  background: linear-gradient(180deg, #4a1f7a, #2a0f4a);
+  color: #fff8e6;
+  box-shadow: 0 6px 16px rgba(42, 15, 74, 0.45);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
 .btn-quest:hover {
   transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow: 0 10px 24px var(--glow);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 24px rgba(42, 15, 74, 0.55);
 }
 
 .btn-quest:active {
@@ -300,6 +300,87 @@ body {
   border: 1px solid rgba(90, 60, 30, 0.22);
   box-shadow: 0 10px 24px rgba(40, 20, 10, 0.12);
   backdrop-filter: blur(3px);
+}
+
+.map-cta-dock {
+  background: color-mix(in srgb, #fff8e6 94%, transparent);
+  border: 1.5px solid rgba(90, 60, 30, 0.28);
+  box-shadow: 0 12px 32px rgba(40, 20, 10, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.map-cta-dock .typewriter-caret,
+.map-cta-headline {
+  color: #1f140c !important;
+}
+
+.map-cta-hint {
+  color: #5a4532 !important;
+}
+
+.quest-title-tab {
+  background: color-mix(in srgb, #fff8e6 92%, transparent);
+  border: 1.5px solid rgba(90, 60, 30, 0.28);
+  box-shadow: 0 8px 22px rgba(40, 20, 10, 0.16);
+  backdrop-filter: blur(6px);
+}
+
+.quest-relic-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255, 248, 230, 0.96), rgba(243, 230, 201, 0.9)),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 10px,
+      rgba(90, 60, 30, 0.03) 10px,
+      rgba(90, 60, 30, 0.03) 11px
+    );
+  border: 1.5px solid rgba(90, 60, 30, 0.28);
+  box-shadow:
+    0 14px 28px rgba(40, 20, 10, 0.16),
+    inset 0 0 0 1px rgba(255, 248, 230, 0.55);
+}
+
+.quest-relic-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, #5b2d91, #c9a227);
+}
+
+.quest-timeline {
+  position: relative;
+  padding-left: 1.35rem;
+}
+
+.quest-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #5b2d91, #c9a227, #2f8f5b);
+  opacity: 0.7;
+}
+
+.quest-timeline-item {
+  position: relative;
+}
+
+.quest-timeline-dot {
+  position: absolute;
+  left: -1.22rem;
+  top: 1.35rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 999px;
+  border: 2px solid #fff8e6;
+  box-shadow: 0 0 0 2px rgba(91, 45, 145, 0.35);
 }
 
 .project-postcard {
