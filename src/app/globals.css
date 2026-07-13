@@ -261,6 +261,28 @@ body {
   }
 }
 
+@keyframes pin-bob {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes pin-ground-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.35;
+  }
+}
+
 .float-decor {
   animation: floaty 4.5s ease-in-out infinite;
 }
@@ -490,6 +512,18 @@ button[aria-current="page"] .map-quest-pin {
 
 .pin-ring {
   animation: pin-pulse 2.2s ease-out infinite;
+}
+
+.map-pin-bob {
+  animation: pin-bob 3.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.pin-ground {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  animation: pin-ground-pulse 2.4s ease-in-out infinite;
 }
 
 .sr-only {
