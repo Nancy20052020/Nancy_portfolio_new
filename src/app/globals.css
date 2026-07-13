@@ -258,11 +258,16 @@ body {
   opacity: 0.92;
 }
 
-.map-cta-dock {
-  background: color-mix(in srgb, var(--surface-elevated) 88%, transparent);
-  border: 1px solid var(--card-border);
-  box-shadow: 0 10px 28px var(--shadow);
-  backdrop-filter: blur(10px);
+.about-copy-panel {
+  background: color-mix(in srgb, #fff8e6 82%, transparent);
+  border: 1px solid rgba(90, 60, 30, 0.2);
+  box-shadow: 0 10px 28px rgba(40, 20, 10, 0.14);
+  backdrop-filter: blur(4px);
+}
+
+.about-copy-panel h3,
+.about-copy-panel .typewriter-caret {
+  color: #1f140c !important;
 }
 
 @supports (background: color-mix(in srgb, black 50%, white)) {
