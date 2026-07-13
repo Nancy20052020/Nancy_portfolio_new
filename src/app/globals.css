@@ -302,6 +302,22 @@ body {
   backdrop-filter: blur(3px);
 }
 
+.project-postcard {
+  /* Prefer box-shadow over filter:drop-shadow so the bitmap stays sharp */
+  filter: none;
+}
+
+.project-postcard-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Avoid browser softening when scaling down high-DPI assets */
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 14px 28px rgba(40, 20, 10, 0.28);
+}
+
 @supports (background: color-mix(in srgb, black 50%, white)) {
   .banner-asset,
   .compass-asset {
