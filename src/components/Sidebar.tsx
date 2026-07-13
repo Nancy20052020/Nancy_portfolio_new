@@ -1,10 +1,10 @@
 "use client";
 
 import type { ComponentType } from "react";
+import Image from "next/image";
 import {
   Award,
   Briefcase,
-  Compass,
   FolderKanban,
   Mail,
   Map,
@@ -59,13 +59,22 @@ export function Sidebar({
         }`}
         aria-label="Quest navigation"
       >
-        <div className="mb-6 flex items-start gap-3 px-1">
-          <div className="banner-ribbon px-3 pb-4 pt-2 text-center">
-            <Compass className="mx-auto mb-1 text-[color:var(--gold-bright)]" size={22} aria-hidden />
-            <p className="font-[family-name:var(--font-cinzel)] text-sm font-bold tracking-wide">
-              TREADURE
-            </p>
-            <p className="text-[0.65rem] opacity-90">Quest to Create</p>
+        <div className="mb-5 flex justify-center px-1">
+          <div className="relative w-[8.5rem]">
+            <Image
+              src="/quest/banner.png"
+              alt="TREADURE Quest to Create"
+              width={380}
+              height={570}
+              className="h-auto w-full drop-shadow-md"
+              unoptimized
+            />
+            <div className="absolute inset-x-[12%] top-[18%] text-center text-[#fff8e6]">
+              <p className="font-[family-name:var(--font-cinzel)] text-xs font-bold tracking-[0.08em]">
+                TREADURE
+              </p>
+              <p className="text-[0.6rem] opacity-95">Quest to Create</p>
+            </div>
           </div>
         </div>
 
@@ -81,7 +90,7 @@ export function Sidebar({
                   onNavigate(item.id);
                   onCloseMobile();
                 }}
-                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors ${
+                className={`flex min-h-11 items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors ${
                   active
                     ? "bg-[color:var(--surface-elevated)] text-[color:var(--nav-active)] shadow-sm"
                     : "text-[color:var(--parchment-muted)] hover:bg-[color:var(--surface-elevated)] hover:text-[color:var(--parchment-ink)]"

@@ -8,11 +8,12 @@ export type QuestId =
   | "contact";
 
 export const QUESTS: {
-  id: QuestId;
+  id: Exclude<QuestId, "map">;
   label: string;
-  questNumber?: number;
+  questNumber: number;
   pinColor: string;
   mapPosition: { x: number; y: number };
+  pinSrc: string;
   description: string;
 }[] = [
   {
@@ -20,31 +21,35 @@ export const QUESTS: {
     label: "About Me",
     questNumber: 1,
     pinColor: "#6b3fa0",
-    mapPosition: { x: 20, y: 34 },
-    description: "The castle of origins",
+    mapPosition: { x: 24, y: 28 },
+    pinSrc: "/quest/pin-about.png",
+    description: "The purple castle",
   },
   {
     id: "skills",
     label: "Skills",
     questNumber: 2,
     pinColor: "#2f6fed",
-    mapPosition: { x: 74, y: 24 },
-    description: "Crystal peak arsenal",
+    mapPosition: { x: 66, y: 16 },
+    pinSrc: "/quest/pin-skills.png",
+    description: "Crystal mountain peak",
   },
   {
     id: "projects",
     label: "Projects",
     questNumber: 3,
     pinColor: "#2f8f5b",
-    mapPosition: { x: 62, y: 58 },
-    description: "Ruins of creation",
+    mapPosition: { x: 76, y: 52 },
+    pinSrc: "/quest/pin-projects.png",
+    description: "Forest manor of builds",
   },
   {
     id: "experience",
     label: "Experience",
     questNumber: 4,
     pinColor: "#c9a227",
-    mapPosition: { x: 14, y: 58 },
+    mapPosition: { x: 16, y: 66 },
+    pinSrc: "/quest/pin-experience.png",
     description: "Harbor of voyages",
   },
   {
@@ -52,15 +57,17 @@ export const QUESTS: {
     label: "Achievements",
     questNumber: 5,
     pinColor: "#d97706",
-    mapPosition: { x: 82, y: 46 },
-    description: "Ancient relic grounds",
+    mapPosition: { x: 46, y: 40 },
+    pinSrc: "/quest/pin-achievements.png",
+    description: "Ancient ruins of honor",
   },
   {
     id: "contact",
     label: "Contact",
     questNumber: 6,
     pinColor: "#c45c5c",
-    mapPosition: { x: 88, y: 72 },
+    mapPosition: { x: 84, y: 68 },
+    pinSrc: "/quest/pin-contact.png",
     description: "The lighthouse signal",
   },
 ];
