@@ -170,7 +170,7 @@ export const projects: {
     },
     accent: "#2f6fed",
     postcard: "/quest/project-preppilot.webp",
-    layout: "center",
+    layout: "lower",
   },
   {
     title: "Multi PDF Bot",
@@ -182,7 +182,7 @@ export const projects: {
     },
     accent: "#7c3aed",
     postcard: "/quest/project-multipdf.webp",
-    layout: "center",
+    layout: "lower",
   },
   {
     title: "Drought Sentinel",
@@ -281,7 +281,7 @@ export const achievements = [
     icon: "medal" as const,
   },
   {
-    title: "100+ Commits",
+    title: "500+ Commits",
     detail: "Consistent open contribution trail on Git",
     icon: "code" as const,
   },
