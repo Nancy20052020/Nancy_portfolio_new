@@ -18,6 +18,10 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
       {/* Map stays fully visible — overlays are sparse and tucked into corners */}
       <div className="absolute inset-0 bg-[color:var(--parchment-deep)]">
         <VintageMap onSelect={onSelect} />
+        <span className="mystical-mist left-[12%] top-[20%] h-24 w-24 opacity-60" aria-hidden />
+        <span className="mystical-mist right-[18%] top-[28%] h-32 w-32 opacity-50" style={{ animationDelay: "1.8s" }} aria-hidden />
+        <span className="mystical-spark left-[35%] top-[18%]" aria-hidden />
+        <span className="mystical-spark right-[30%] bottom-[36%]" style={{ animationDelay: "1.4s" }} aria-hidden />
       </div>
 
       {/* Compass — bottom right */}
