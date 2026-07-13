@@ -7,7 +7,7 @@ import { nextQuest } from "@/components/QuestChrome";
 import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { projects, QUEST_ORDER, type QuestId } from "@/data/portfolio";
-import { ink } from "@/lib/questInk";
+import { ink, paperInk } from "@/lib/questInk";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
@@ -34,6 +34,7 @@ export function QuestProjects({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <div className="quest-bg-wash" aria-hidden />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-6xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
@@ -75,7 +76,7 @@ export function QuestProjects({ onNavigate }: Props) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08 * i }}
-              className="project-postcard relative w-[min(82vw,19.5rem)] shrink-0 snap-center sm:w-[20.5rem]"
+              className="project-postcard paper-card relative w-[min(82vw,19.5rem)] shrink-0 snap-center sm:w-[20.5rem]"
             >
               <picture>
                 <source srcSet={project.postcard} type="image/webp" />
@@ -100,11 +101,11 @@ export function QuestProjects({ onNavigate }: Props) {
                 <div className="flex h-full flex-col items-center justify-end gap-2 px-1 pb-2 text-center sm:justify-center sm:pb-0">
                   <h4
                     className="font-[family-name:var(--font-cinzel)] text-lg font-extrabold leading-tight sm:text-xl"
-                    style={{ color: ink.title }}
+                    style={{ color: paperInk.title }}
                   >
                     {project.title}
                   </h4>
-                  <p className="line-clamp-4 text-[0.72rem] leading-snug sm:text-xs" style={{ color: ink.body }}>
+                  <p className="line-clamp-4 text-[0.72rem] leading-snug sm:text-xs" style={{ color: paperInk.body }}>
                     {project.description}
                   </p>
                   <div className="flex flex-wrap justify-center gap-1">
@@ -114,7 +115,7 @@ export function QuestProjects({ onNavigate }: Props) {
                         className="rounded px-1.5 py-0.5 text-[0.6rem] font-semibold"
                         style={{
                           background: `${project.accent}22`,
-                          color: ink.title,
+                          color: paperInk.title,
                           border: `1px solid ${project.accent}55`,
                         }}
                       >
@@ -129,7 +130,7 @@ export function QuestProjects({ onNavigate }: Props) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[0.65rem] font-semibold"
-                        style={{ background: ink.accent, color: "#fff8e6" }}
+                        style={{ background: paperInk.accent, color: "#fff8e6" }}
                       >
                         GitHub <ExternalLink size={10} aria-hidden />
                       </a>
@@ -151,7 +152,7 @@ export function QuestProjects({ onNavigate }: Props) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[0.65rem] font-semibold"
-                        style={{ borderColor: ink.title, color: ink.title, background: "rgba(255,248,230,0.75)" }}
+                        style={{ borderColor: paperInk.title, color: paperInk.title, background: "rgba(255,248,230,0.75)" }}
                       >
                         Drive <ExternalLink size={10} aria-hidden />
                       </a>
