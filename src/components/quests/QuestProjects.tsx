@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Map as MapIcon } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
 import { Typewriter } from "@/components/Typewriter";
-import { projects, type QuestId } from "@/data/portfolio";
+import { projects, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
@@ -21,6 +21,7 @@ const ink = {
 export function QuestProjects({ onNavigate }: Props) {
   const next = nextQuest("projects");
   const scroller = useRef<HTMLDivElement>(null);
+  const total = QUEST_ORDER.length;
 
   const scrollBy = (dir: number) => {
     scroller.current?.scrollBy({ left: dir * 280, behavior: "smooth" });
@@ -44,7 +45,7 @@ export function QuestProjects({ onNavigate }: Props) {
         <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl" style={{ color: ink.accent }}>
-              Quest 3 of 6
+              Quest 3 of {total}
             </p>
             <h2
               className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"
@@ -76,7 +77,7 @@ export function QuestProjects({ onNavigate }: Props) {
             speed={28}
           />
           <p className="mt-1 text-sm" style={{ color: ink.body }}>
-            Slide through each quest postcard — AutEye, PrepPilot, Drought Sentinel, and Urban Pulse.
+            Slide through each quest postcard — AutEye, PrepPilot, Multi PDF Bot, Drought Sentinel, and Urban Pulse.
           </p>
         </div>
 
