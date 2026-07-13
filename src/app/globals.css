@@ -282,6 +282,26 @@ body {
   color: #1f140c !important;
 }
 
+/* Shared parchment overlay for art-backed quest pages */
+.quest-art-panel {
+  background: color-mix(in srgb, #fff8e6 84%, transparent);
+  border: 1px solid rgba(90, 60, 30, 0.2);
+  box-shadow: 0 8px 22px rgba(40, 20, 10, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+.quest-art-panel h3,
+.quest-art-panel .typewriter-caret {
+  color: #1f140c !important;
+}
+
+.quest-exp-card {
+  background: color-mix(in srgb, #fff8e6 88%, transparent);
+  border: 1px solid rgba(90, 60, 30, 0.22);
+  box-shadow: 0 10px 24px rgba(40, 20, 10, 0.12);
+  backdrop-filter: blur(3px);
+}
+
 @supports (background: color-mix(in srgb, black 50%, white)) {
   .banner-asset,
   .compass-asset {

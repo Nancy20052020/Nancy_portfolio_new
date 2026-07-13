@@ -163,7 +163,7 @@ export const projects: {
   {
     title: "Drought Sentinel",
     description:
-      "Remote sensing drought analysis on Google Earth Engine — satellite imagery workflows from the Indian Truth Academy GIS internship (P1).",
+      "Remote sensing drought analysis on Google Earth Engine — satellite imagery workflows from the India Space Academy GIS internship (P1).",
     tech: ["GEE", "Remote Sensing", "GIS", "JS"],
     links: {
       earthEngine: "https://code.earthengine.google.com/1f478591ab593ffe9bcde0a27be6fc48",
@@ -188,7 +188,15 @@ export const projects: {
   },
 ];
 
-export const experience = [
+export const experience: {
+  title: string;
+  org: string;
+  period: string;
+  detail: string;
+  current?: boolean;
+  logo: string;
+  accent: string;
+}[] = [
   {
     title: "Software Engineering Intern",
     org: "Grids App LLC",
@@ -196,13 +204,17 @@ export const experience = [
     detail:
       "Building product features and shipping software in a fast-paced engineering environment.",
     current: true,
+    logo: "/quest/logo-grids.png",
+    accent: "#2f6fed",
   },
   {
     title: "Remote Sensing & GIS Intern",
-    org: "Indian Truth Academy",
+    org: "India Space Academy",
     period: "May – 2 July",
     detail:
       "Hands-on satellite imagery, GIS workflows, and Google Earth Engine projects for real-world geospatial analysis.",
+    logo: "/quest/logo-isa.png",
+    accent: "#5b2d91",
   },
   {
     title: "WE Scholar",
@@ -210,6 +222,8 @@ export const experience = [
     period: "2024",
     detail:
       "Selected from over 30,000 applicants for an intensive Data Structures & Algorithms program.",
+    logo: "/quest/logo-google.png",
+    accent: "#4285f4",
   },
   {
     title: "Google Immersion Week",
@@ -217,6 +231,8 @@ export const experience = [
     period: "2024",
     detail:
       "15+ hours of exclusive sessions on AI, career development, and personalized mentorship.",
+    logo: "/quest/logo-google.png",
+    accent: "#34a853",
   },
   {
     title: "SheFi Scholar",
@@ -224,6 +240,8 @@ export const experience = [
     period: "2024",
     detail:
       "Explored blockchain and Web3 — building smart contracts and decentralized applications.",
+    logo: "/quest/logo-shefi.png",
+    accent: "#7c3aed",
   },
 ];
 
