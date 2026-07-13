@@ -41,13 +41,14 @@ export function VintageMap({ onSelect, activeId }: VintageMapProps) {
         aria-hidden
       >
         <path
+          data-map-trail
           className="map-path"
           d={trail}
           fill="none"
-          stroke="color-mix(in srgb, var(--gold) 70%, transparent)"
-          strokeWidth="0.35"
+          stroke="color-mix(in srgb, var(--gold) 78%, transparent)"
+          strokeWidth="0.45"
           vectorEffect="non-scaling-stroke"
-          opacity="0.7"
+          opacity="0.85"
         />
       </svg>
 
@@ -69,6 +70,7 @@ export function VintageMap({ onSelect, activeId }: VintageMapProps) {
           <button
             key={quest.id}
             type="button"
+            data-map-pin
             onClick={() => onSelect(quest.id)}
             className="group absolute z-20 flex -translate-x-1/2 flex-col items-center focus-visible:outline-none"
             style={{

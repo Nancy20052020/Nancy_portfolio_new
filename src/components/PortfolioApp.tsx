@@ -64,8 +64,15 @@ export function PortfolioApp() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { opacity: 0.35, y: 18, filter: "blur(4px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power2.out" },
+        { opacity: 0.2, y: 28, scale: 0.97, filter: "blur(8px)" },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.7,
+          ease: "power3.out",
+        },
       );
     }, el);
 
@@ -125,10 +132,10 @@ export function PortfolioApp() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
+                initial={{ opacity: 0, scale: 0.985 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.01 }}
+                transition={{ duration: 0.32 }}
                 className="min-h-full"
               >
                 {current === "map" && (
