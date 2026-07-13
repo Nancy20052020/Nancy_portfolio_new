@@ -19,7 +19,7 @@ import {
 import { QUESTS, profile, type QuestId } from "@/data/portfolio";
 import { useTheme } from "@/components/ThemeProvider";
 
-const ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+const ICONS: Record<string, ComponentType<{ size?: number; className?: string; color?: string }>> = {
   map: Map,
   about: UserRound,
   skills: Sparkles,
