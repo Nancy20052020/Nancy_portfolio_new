@@ -145,7 +145,7 @@ export const projects: {
       github: "https://github.com/Nancy20052020",
     },
     accent: "#6b3fa0",
-    postcard: "/quest/project-auteye.png",
+    postcard: "/quest/project-auteye.webp",
     layout: "center",
   },
   {
@@ -157,7 +157,7 @@ export const projects: {
       github: "https://github.com/Nancy20052020",
     },
     accent: "#2f6fed",
-    postcard: "/quest/project-preppilot.png",
+    postcard: "/quest/project-preppilot.webp",
     layout: "center",
   },
   {
@@ -170,7 +170,7 @@ export const projects: {
       drive: "https://drive.google.com/file/d/1RZha6dBhiwGYqZHKaGM_WiZF5jK6NnmV/view?usp=drivesdk",
     },
     accent: "#2f8f5b",
-    postcard: "/quest/project-drought.png",
+    postcard: "/quest/project-drought.webp",
     layout: "lower",
   },
   {
@@ -183,7 +183,7 @@ export const projects: {
       drive: "https://drive.google.com/file/d/1TFvuLC2Rm8a2FTUSVplmug-8RdcGejW3/view?usp=drivesdk",
     },
     accent: "#c9a227",
-    postcard: "/quest/project-urban.png",
+    postcard: "/quest/project-urban.webp",
     layout: "lower",
   },
 ];
