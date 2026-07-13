@@ -22,17 +22,17 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "TREADURE — Nancy Verma | Quest to Create",
+  title: "Nancy Verma | Portfolio",
   description:
     "Nancy Verma's treasure-hunt portfolio — AI & ML, remote sensing, projects, and experience mapped as an explorer's quest.",
   openGraph: {
-    title: "TREADURE — Nancy Verma",
+    title: "Nancy Verma | Portfolio",
     description: "Every great journey starts with a quest.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TREADURE — Nancy Verma",
+    title: "Nancy Verma | Portfolio",
     description: "Every great journey starts with a quest.",
   },
 };

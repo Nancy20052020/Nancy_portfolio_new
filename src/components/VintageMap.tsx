@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useRef } from "react";
-import gsap from "gsap";
-import { QUESTS, MAP_PATH_ORDER, type QuestId } from "@/data/portfolio";
+import { QUESTS, type QuestId } from "@/data/portfolio";
 
 type VintageMapProps = {
   onSelect: (id: QuestId) => void;
@@ -11,108 +9,17 @@ type VintageMapProps = {
 };
 
 export function VintageMap({ onSelect, activeId }: VintageMapProps) {
-  const pathRef = useRef<SVGPolylineElement>(null);
-  const glowRef = useRef<SVGPolylineElement>(null);
-  const gradId = useId().replace(/:/g, "");
-
-  const pathPoints = MAP_PATH_ORDER.map((id) => {
-    const q = QUESTS.find((item) => item.id === id);
-    return q ? `${q.mapPosition.x},${q.mapPosition.y}` : null;
-  })
-    .filter(Boolean)
-    .join(" ");
-
-  useEffect(() => {
-    const line = pathRef.current;
-    const glow = glowRef.current;
-    if (!line) return;
-
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const length = line.getTotalLength();
-
-    if (reduce) {
-      line.style.strokeDasharray = "1.8 2.4";
-      line.style.strokeDashoffset = "0";
-      if (glow) {
-        glow.style.strokeDasharray = "none";
-        glow.style.strokeDashoffset = "0";
-      }
-      return;
-    }
-
-    line.style.strokeDasharray = `${length}`;
-    line.style.strokeDashoffset = `${length}`;
-    if (glow) {
-      glow.style.strokeDasharray = `${length}`;
-      glow.style.strokeDashoffset = `${length}`;
-    }
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-      tl.to([glow, line].filter(Boolean), {
-        strokeDashoffset: 0,
-        duration: 2.2,
-        ease: "power2.inOut",
-      }).add(() => {
-        line.style.strokeDasharray = "1.8 2.4";
-        gsap.to(line, {
-          strokeDashoffset: -40,
-          duration: 14,
-          repeat: -1,
-          ease: "none",
-        });
-      });
-    });
-
-    return () => ctx.revert();
-  }, [pathPoints]);
-
   return (
     <div className="relative h-full w-full overflow-hidden">
       <picture>
         <source media="(max-width: 768px)" srcSet="/quest/map-mobile.webp" type="image/webp" />
         <img
           src="/quest/map.webp"
-          alt="Treasure hunt atlas map of Nancy's quests"
+          alt="Treasure hunt atlas map of Nancy Verma's portfolio"
           className="absolute inset-0 h-full w-full object-cover object-center"
           draggable={false}
         />
       </picture>
-
-      <svg
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id={`quest-path-${gradId}`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#6b3fa0" />
-            <stop offset="50%" stopColor="#c9a227" />
-            <stop offset="100%" stopColor="#c45c5c" />
-          </linearGradient>
-        </defs>
-        <polyline
-          ref={glowRef}
-          points={pathPoints}
-          fill="none"
-          stroke="rgba(232, 197, 71, 0.35)"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <polyline
-          ref={pathRef}
-          points={pathPoints}
-          fill="none"
-          stroke={`url(#quest-path-${gradId})`}
-          strokeWidth="0.55"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray="1.8 2.4"
-          className="map-path"
-        />
-      </svg>
 
       {QUESTS.map((quest, index) => {
         const active = activeId === quest.id;
@@ -125,37 +32,50 @@ export function VintageMap({ onSelect, activeId }: VintageMapProps) {
             style={{
               left: `${quest.mapPosition.x}%`,
               top: `${quest.mapPosition.y}%`,
-              animationDelay: `${index * 0.12}s`,
             }}
-            aria-label={`Open ${quest.label} quest — ${quest.description}`}
+            aria-label={`Open ${quest.label} — ${quest.description}`}
             aria-current={active ? "page" : undefined}
           >
-            <span className="relative block animate-[floaty_3.6s_ease-in-out_infinite]" style={{ animationDelay: `${index * 0.2}s` }}>
+            <span
+              className="relative block animate-[floaty_3.6s_ease-in-out_infinite]"
+              style={{ animationDelay: `${index * 0.18}s` }}
+            >
+              {/* Outer glow bloom */}
               <span
-                className="pointer-events-none absolute bottom-0 left-1/2 h-6 w-6 -translate-x-1/2 rounded-full opacity-50 blur-md pin-ring"
+                className="pointer-events-none absolute bottom-[8%] left-1/2 h-14 w-14 -translate-x-1/2 rounded-full opacity-70 blur-xl pin-ring sm:h-16 sm:w-16"
                 style={{ background: quest.pinColor }}
+                aria-hidden
+              />
+              <span
+                className="pointer-events-none absolute bottom-[12%] left-1/2 h-8 w-8 -translate-x-1/2 rounded-full opacity-80 blur-md"
+                style={{
+                  background: quest.pinColor,
+                  boxShadow: `0 0 22px 8px ${quest.pinColor}`,
+                }}
                 aria-hidden
               />
               <Image
                 src={quest.pinSrc}
                 alt=""
-                width={72}
-                height={108}
-                className={`map-quest-pin relative transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110 ${
-                  active ? "scale-110 -translate-y-1" : ""
+                width={96}
+                height={144}
+                className={`map-quest-pin relative transition-transform duration-300 group-hover:-translate-y-1.5 group-hover:scale-110 ${
+                  active ? "scale-110 -translate-y-1.5" : ""
                 }`}
                 style={{
-                  width: "clamp(2.4rem, 5vw, 3.8rem)",
+                  width: "clamp(3.6rem, 8.5vw, 5.75rem)",
                   height: "auto",
+                  filter: `drop-shadow(0 0 10px ${quest.pinColor}) drop-shadow(0 6px 14px rgba(0,0,0,0.45))`,
                 }}
                 unoptimized
               />
               <span
-                className="map-pin-label absolute left-1/2 top-[102%] -translate-x-1/2 whitespace-nowrap rounded-md px-1.5 py-0.5 text-[0.62rem] font-semibold tracking-wide shadow-sm sm:text-xs"
+                className="map-pin-label absolute left-1/2 top-[102%] -translate-x-1/2 whitespace-nowrap rounded-md px-2 py-1 text-[0.7rem] font-bold tracking-wide shadow-md sm:text-sm"
                 style={{
-                  background: "color-mix(in srgb, var(--surface-elevated) 94%, transparent)",
+                  background: "color-mix(in srgb, var(--surface-elevated) 96%, transparent)",
                   color: "var(--parchment-ink)",
-                  border: `1px solid ${quest.pinColor}55`,
+                  border: `1.5px solid ${quest.pinColor}`,
+                  boxShadow: `0 0 12px ${quest.pinColor}55`,
                 }}
               >
                 {quest.label}
