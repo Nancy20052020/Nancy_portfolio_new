@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Map as MapIcon } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
@@ -91,16 +90,21 @@ export function QuestProjects({ onNavigate }: Props) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08 * i }}
-              className="relative w-[min(82vw,19.5rem)] shrink-0 snap-center sm:w-[20.5rem]"
+              className="project-postcard relative w-[min(82vw,19.5rem)] shrink-0 snap-center sm:w-[20.5rem]"
             >
-              <Image
-                src={project.postcard}
-                alt=""
-                width={433}
-                height={577}
-                className="h-auto w-full drop-shadow-xl"
-                unoptimized
-              />
+              <picture>
+                <source srcSet={project.postcard} type="image/webp" />
+                <img
+                  src={project.postcard.replace(/\.webp$/, ".png")}
+                  alt=""
+                  width={866}
+                  height={1154}
+                  className="project-postcard-img h-auto w-full"
+                  decoding="async"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  draggable={false}
+                />
+              </picture>
               <div
                 className={`absolute inset-x-[10%] flex flex-col ${
                   project.layout === "lower"
