@@ -49,10 +49,10 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
           <div className="min-w-0 flex-1">
             <Typewriter
               text={profile.headline}
-              className="font-[family-name:var(--font-cinzel)] text-sm font-bold leading-snug tracking-wide text-[color:var(--parchment-ink)] sm:text-base md:text-lg"
+              className="map-cta-headline font-[family-name:var(--font-cinzel)] text-sm font-bold leading-snug tracking-wide sm:text-base md:text-lg"
               speed={28}
             />
-            <p className="mt-1 hidden text-xs text-[color:var(--parchment-muted)] sm:block">
+            <p className="map-cta-hint mt-1 text-xs sm:text-sm">
               Tap any glowing pin on the map to open that section.
             </p>
           </div>
