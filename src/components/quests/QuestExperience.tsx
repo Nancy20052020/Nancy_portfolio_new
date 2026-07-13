@@ -35,6 +35,10 @@ export function QuestExperience({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <span className="mystical-mist left-[8%] top-[18%] h-28 w-28" aria-hidden />
+        <span className="mystical-mist right-[12%] bottom-[22%] h-36 w-36" style={{ animationDelay: "1.4s" }} aria-hidden />
+        <span className="mystical-spark left-[20%] top-[30%]" style={{ animationDelay: "0.4s" }} aria-hidden />
+        <span className="mystical-spark right-[24%] top-[42%]" style={{ animationDelay: "1.8s" }} aria-hidden />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-3xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
@@ -73,11 +77,10 @@ export function QuestExperience({ onNavigate }: Props) {
               <article className="quest-relic-card rounded-2xl p-4 pl-5 sm:p-5">
                 <div className="flex items-start gap-3">
                   <div
-                    className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl"
+                    className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white"
                     style={{
-                      background: "rgba(20, 14, 10, 0.92)",
-                      border: `1px solid ${item.accent}66`,
-                      boxShadow: `0 0 0 1px rgba(255,248,230,0.2), 0 6px 14px ${item.accent}33`,
+                      border: `1px solid ${item.accent}55`,
+                      boxShadow: `0 4px 12px ${item.accent}22`,
                     }}
                   >
                     <Image
