@@ -81,6 +81,16 @@ export const QUEST_ORDER: QuestId[] = [
   "contact",
 ];
 
+/** Geographic trail order for the animated dotted path on the atlas */
+export const MAP_PATH_ORDER: Exclude<QuestId, "map">[] = [
+  "about",
+  "skills",
+  "achievements",
+  "projects",
+  "experience",
+  "contact",
+];
+
 export const profile = {
   name: "Nancy Verma",
   brand: "TREADURE",
