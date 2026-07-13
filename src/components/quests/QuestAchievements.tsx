@@ -6,17 +6,10 @@ import { nextQuest } from "@/components/QuestChrome";
 import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { achievements, QUEST_ORDER, type QuestId } from "@/data/portfolio";
+import { ink } from "@/lib/questInk";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
-};
-
-const ink = {
-  title: "#1f140c",
-  body: "#3a2a1c",
-  muted: "#5a4532",
-  accent: "#5b2d91",
-  gold: "#a67c1a",
 };
 
 const ICONS = {
@@ -44,6 +37,7 @@ export function QuestAchievements({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <div className="quest-bg-wash" aria-hidden />
         <span className="mystical-mist left-[12%] top-[16%] h-28 w-28" aria-hidden />
         <span className="mystical-mist right-[10%] bottom-[20%] h-36 w-36" style={{ animationDelay: "1.5s" }} aria-hidden />
         <span className="mystical-spark left-[40%] top-[24%]" aria-hidden />

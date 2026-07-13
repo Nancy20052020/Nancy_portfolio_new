@@ -32,14 +32,16 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
         className="pointer-events-none absolute bottom-24 right-3 z-20 w-[3.75rem] sm:bottom-28 sm:right-5 sm:w-[5.25rem] md:bottom-8 md:w-[6.25rem]"
         aria-hidden
       >
-        <Image
-          src="/quest/compass.png"
-          alt=""
-          width={280}
-          height={280}
-          className="compass-asset float-decor h-auto w-full"
-          unoptimized
-        />
+        <div className="float-decor">
+          <Image
+            src="/quest/compass.png"
+            alt=""
+            width={280}
+            height={280}
+            className="compass-asset compass-spin h-auto w-full"
+            unoptimized
+          />
+        </div>
       </motion.div>
 
       {/* Compact CTA dock — does not cover the map center */}
@@ -60,7 +62,11 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
               Tap any glowing pin on the map to open that section.
             </p>
           </div>
-          <button type="button" className="btn-quest shrink-0 !min-h-10 !px-4 !py-2 text-sm" onClick={onStart}>
+          <button
+            type="button"
+            className="btn-quest btn-quest-pulse shrink-0 !min-h-10 !px-4 !py-2 text-sm"
+            onClick={onStart}
+          >
             <Send size={15} aria-hidden />
             Start
           </button>

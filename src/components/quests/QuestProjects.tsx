@@ -7,16 +7,10 @@ import { nextQuest } from "@/components/QuestChrome";
 import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { projects, QUEST_ORDER, type QuestId } from "@/data/portfolio";
+import { ink } from "@/lib/questInk";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
-};
-
-const ink = {
-  title: "#1f140c",
-  body: "#3a2a1c",
-  muted: "#5a4532",
-  accent: "#5b2d91",
 };
 
 export function QuestProjects({ onNavigate }: Props) {
@@ -53,7 +47,7 @@ export function QuestProjects({ onNavigate }: Props) {
                 <ChevronLeft size={18} />
               </button>
               <button type="button" className="btn-ghost !min-h-10 !px-3" onClick={() => scrollBy(1)} aria-label="Next projects">
-                <ChevronRight size={18} />
+                <ChevronRight size={18} className="chevron-nudge" />
               </button>
             </>
           }
