@@ -1,7 +1,6 @@
 "use client";
 
 import type { ComponentType } from "react";
-import Image from "next/image";
 import {
   Award,
   Briefcase,
@@ -75,25 +74,13 @@ export function Sidebar({
             collapsed ? "md:justify-center" : "justify-between"
           }`}
         >
-          <div className={`relative ${collapsed ? "md:hidden" : ""} w-[8rem] shrink-0`}>
-            <Image
-              src="/quest/banner.png"
-              alt={`${profile.name} Portfolio`}
-              width={380}
-              height={570}
-              className="banner-asset h-auto w-full"
-              unoptimized
-            />
-            <div className="absolute inset-x-[10%] top-[15%] flex flex-col items-center text-center">
-              <div className="banner-title-plate rounded-md px-2 py-1.5">
-                <p className="banner-title-text font-[family-name:var(--font-cinzel)] text-[0.78rem] font-extrabold leading-tight tracking-[0.02em]">
-                  {profile.brand}
-                </p>
-                <p className="banner-subtitle-text mt-1 text-[0.62rem] font-semibold leading-tight">
-                  {profile.tagline}
-                </p>
-              </div>
-            </div>
+          <div className={`min-w-0 ${collapsed ? "md:hidden" : ""} flex-1 pt-1`}>
+            <p className="font-[family-name:var(--font-cinzel)] text-base font-extrabold tracking-wide text-[color:var(--parchment-ink)]">
+              {profile.brand}
+            </p>
+            <p className="mt-0.5 text-xs font-semibold text-[color:var(--banner)]">
+              {profile.tagline}
+            </p>
           </div>
 
           {/* Mobile: close only. Desktop: collapse only. Never both. */}
