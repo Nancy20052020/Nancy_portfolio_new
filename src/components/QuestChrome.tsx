@@ -22,25 +22,26 @@ export function QuestChrome({
   nextLabel = "Next Quest",
 }: QuestChromeProps) {
   return (
-    <section className="relative mx-auto flex min-h-full w-full max-w-5xl flex-col px-4 py-6 sm:px-6 lg:px-8">
-      <header className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="font-[family-name:var(--font-caveat)] text-xl text-[color:var(--banner)]">
+    <section className="relative mx-auto flex min-h-full w-full max-w-5xl flex-col px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
+      <header className="mb-4 flex flex-wrap items-center justify-between gap-3 sm:mb-5">
+        <div className="min-w-0 flex-1">
+          <p className="font-[family-name:var(--font-caveat)] text-lg text-[color:var(--banner)] sm:text-xl">
             Quest {questNumber} of {QUEST_ORDER.length}
           </p>
-          <h2 className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide text-[color:var(--parchment-ink)] sm:text-3xl">
+          <h2 className="font-[family-name:var(--font-cinzel)] text-xl font-bold tracking-wide text-[color:var(--parchment-ink)] sm:text-3xl">
             {title}
           </h2>
         </div>
-        <button type="button" className="btn-ghost" onClick={onBackToMap}>
+        <button type="button" className="btn-ghost shrink-0 text-sm sm:text-base" onClick={onBackToMap}>
           <MapIcon size={16} aria-hidden />
-          Back to Map
+          <span className="sm:hidden">Map</span>
+          <span className="hidden sm:inline">Back to Map</span>
         </button>
       </header>
 
-      <div className="quest-card relative flex-1 rounded-2xl p-5 sm:p-8">{children}</div>
+      <div className="quest-card relative flex-1 rounded-2xl p-4 sm:p-8">{children}</div>
 
-      <footer className="mt-5 flex flex-wrap items-center justify-between gap-3">
+      <footer className="safe-bottom mt-4 flex flex-wrap items-center justify-between gap-3 sm:mt-5">
         <button type="button" className="btn-ghost" onClick={onBackToMap}>
           <ArrowLeft size={16} aria-hidden />
           Map

@@ -121,7 +121,9 @@ body {
 .btn-quest {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.55rem;
+  min-height: 44px;
   border: none;
   border-radius: 999px;
   padding: 0.75rem 1.35rem;
@@ -133,6 +135,7 @@ body {
   color: var(--btn-primary-text);
   box-shadow: 0 6px 16px var(--glow);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-quest:hover {
@@ -148,7 +151,9 @@ body {
 .btn-ghost {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
+  min-height: 44px;
   border: 1.5px solid var(--card-border);
   border-radius: 999px;
   padding: 0.65rem 1.15rem;
@@ -159,6 +164,7 @@ body {
   background: color-mix(in srgb, var(--surface-elevated) 80%, transparent);
   color: var(--parchment-ink);
   transition: transform 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-ghost:hover {
@@ -254,5 +260,31 @@ body {
 @media (max-width: 900px) {
   .desktop-only {
     display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .banner-ribbon {
+    max-width: 11.5rem;
+    font-size: 0.95rem;
+  }
+
+  .quest-card {
+    border-radius: 1rem;
+  }
+
+  .map-pin-label {
+    font-size: 0.6rem !important;
+    padding: 0.15rem 0.35rem !important;
+  }
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .safe-top {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
   }
 }
