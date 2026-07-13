@@ -70,7 +70,11 @@ export function VintageMap({ onSelect, activeId }: VintageMapProps) {
                 unoptimized
               />
               <span
-                className="map-pin-label absolute left-1/2 top-[102%] -translate-x-1/2 whitespace-nowrap rounded-md px-2 py-1 text-[0.7rem] font-bold tracking-wide shadow-md sm:text-sm"
+                className={`map-pin-label absolute left-1/2 top-[102%] -translate-x-1/2 rounded-md px-2 py-1 text-center text-[0.7rem] font-bold tracking-wide shadow-md sm:text-sm ${
+                  quest.id === "publications"
+                    ? "max-w-[7.5rem] whitespace-normal leading-tight sm:max-w-[9rem]"
+                    : "whitespace-nowrap"
+                }`}
                 style={{
                   background: "color-mix(in srgb, var(--surface-elevated) 96%, transparent)",
                   color: "var(--parchment-ink)",
