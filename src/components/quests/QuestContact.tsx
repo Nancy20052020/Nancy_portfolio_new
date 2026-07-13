@@ -33,6 +33,10 @@ export function QuestContact({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <span className="mystical-mist left-[6%] top-[22%] h-28 w-28" aria-hidden />
+        <span className="mystical-mist right-[10%] top-[30%] h-36 w-36" style={{ animationDelay: "1.6s" }} aria-hidden />
+        <span className="mystical-spark left-[18%] top-[40%]" aria-hidden />
+        <span className="mystical-spark right-[28%] bottom-[34%]" style={{ animationDelay: "1.3s" }} aria-hidden />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-6xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
@@ -118,14 +122,16 @@ export function QuestContact({ onNavigate }: Props) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.55 }}
-            className="mx-auto w-full max-w-md"
+            className="relative mx-auto w-full max-w-md"
           >
+            <span className="mystical-spark left-[12%] top-[8%]" style={{ animationDelay: "0.6s" }} aria-hidden />
+            <span className="mystical-spark right-[16%] top-[18%]" style={{ animationDelay: "1.7s" }} aria-hidden />
             <Image
               src="/quest/letters.webp"
               alt="Sealed parchment letters with purple wax"
               width={900}
               height={602}
-              className="h-auto w-full"
+              className="float-letters h-auto w-full"
               style={{ filter: "drop-shadow(0 16px 28px rgba(40, 20, 10, 0.35))" }}
               unoptimized
             />

@@ -199,6 +199,50 @@ body {
   }
 }
 
+@keyframes floaty-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+@keyframes mist-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(12px, -10px) scale(1.08);
+    opacity: 0.55;
+  }
+}
+
+@keyframes rune-glow {
+  0%,
+  100% {
+    box-shadow: 0 8px 22px rgba(40, 20, 10, 0.14), 0 0 0 0 rgba(91, 45, 145, 0.15);
+  }
+  50% {
+    box-shadow: 0 10px 26px rgba(40, 20, 10, 0.18), 0 0 18px 2px rgba(91, 45, 145, 0.22);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+}
+
 @keyframes path-dash {
   to {
     stroke-dashoffset: -40;
@@ -219,6 +263,39 @@ body {
 
 .float-decor {
   animation: floaty 4.5s ease-in-out infinite;
+}
+
+.float-letters {
+  animation: floaty-slow 5.5s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.mystical-mist {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(155, 109, 212, 0.28), transparent 70%);
+  filter: blur(2px);
+  animation: mist-drift 7s ease-in-out infinite;
+}
+
+.mystical-spark {
+  pointer-events: none;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #ffe08a, rgba(232, 197, 71, 0.1));
+  animation: sparkle 3.2s ease-in-out infinite;
+}
+
+.quest-title-tab {
+  background: color-mix(in srgb, #fff8e6 92%, transparent);
+  border: 1.5px solid rgba(90, 60, 30, 0.28);
+  box-shadow: 0 8px 22px rgba(40, 20, 10, 0.16);
+  backdrop-filter: blur(6px);
+  animation: rune-glow 4.8s ease-in-out infinite;
 }
 
 .map-path {
@@ -316,13 +393,6 @@ body {
 
 .map-cta-hint {
   color: #5a4532 !important;
-}
-
-.quest-title-tab {
-  background: color-mix(in srgb, #fff8e6 92%, transparent);
-  border: 1.5px solid rgba(90, 60, 30, 0.28);
-  box-shadow: 0 8px 22px rgba(40, 20, 10, 0.16);
-  backdrop-filter: blur(6px);
 }
 
 .quest-relic-card {

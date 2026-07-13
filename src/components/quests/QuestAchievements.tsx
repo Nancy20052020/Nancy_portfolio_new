@@ -44,6 +44,10 @@ export function QuestAchievements({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <span className="mystical-mist left-[12%] top-[16%] h-28 w-28" aria-hidden />
+        <span className="mystical-mist right-[10%] bottom-[20%] h-36 w-36" style={{ animationDelay: "1.5s" }} aria-hidden />
+        <span className="mystical-spark left-[40%] top-[24%]" aria-hidden />
+        <span className="mystical-spark right-[30%] top-[38%]" style={{ animationDelay: "1.2s" }} aria-hidden />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3.5rem)] w-full max-w-6xl flex-col px-3 py-4 sm:px-6 sm:py-6 md:min-h-screen lg:px-8">
