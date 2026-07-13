@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Code2, Cpu, HeartHandshake, Map as MapIcon, Wrench } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
 import { Typewriter } from "@/components/Typewriter";
-import { skills, type QuestId } from "@/data/portfolio";
+import { skills, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
@@ -46,6 +46,7 @@ const categories = [
 
 export function QuestSkills({ onNavigate }: Props) {
   const next = nextQuest("skills");
+  const total = QUEST_ORDER.length;
 
   return (
     <section className="relative min-h-[calc(100svh-3.5rem)] md:min-h-screen">
@@ -65,7 +66,7 @@ export function QuestSkills({ onNavigate }: Props) {
         <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl" style={{ color: ink.accent }}>
-              Quest 2 of 6
+              Quest 2 of {total}
             </p>
             <h2
               className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"

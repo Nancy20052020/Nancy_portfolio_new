@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Map as MapIcon } from "lucide-react";
 import { nextQuest } from "@/components/QuestChrome";
 import { Typewriter } from "@/components/Typewriter";
-import { profile, type QuestId } from "@/data/portfolio";
+import { profile, QUEST_ORDER, type QuestId } from "@/data/portfolio";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
@@ -21,6 +21,7 @@ const ink = {
 
 export function QuestAbout({ onNavigate }: Props) {
   const next = nextQuest("about");
+  const total = QUEST_ORDER.length;
 
   return (
     <section className="relative min-h-[calc(100svh-3.5rem)] md:min-h-screen">
@@ -43,7 +44,7 @@ export function QuestAbout({ onNavigate }: Props) {
               className="font-[family-name:var(--font-caveat)] text-lg sm:text-xl"
               style={{ color: ink.accent }}
             >
-              Quest 1 of 6
+              Quest 1 of {total}
             </p>
             <h2
               className="font-[family-name:var(--font-cinzel)] text-2xl font-bold tracking-wide sm:text-3xl"
