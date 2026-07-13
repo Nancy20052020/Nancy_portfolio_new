@@ -112,9 +112,12 @@ export function Sidebar({
           onClick={toggleTheme}
           className="btn-ghost mt-4 w-full justify-center"
           aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+          suppressHydrationWarning
         >
           {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
-          {theme === "light" ? "Night Chart" : "Day Chart"}
+          <span suppressHydrationWarning>
+            {theme === "light" ? "Night Chart" : "Day Chart"}
+          </span>
         </button>
       </aside>
     </>

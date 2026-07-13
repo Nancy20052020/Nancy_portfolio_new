@@ -4,8 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -18,43 +17,49 @@ type ThemeContextValue = {
 };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
+const STORAGE_KEY = "treadure-theme";
 
-function readStoredTheme(): Theme {
+function readTheme(): Theme {
   if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem("treadure-theme");
+  const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === "light" || stored === "dark") return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
 }
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
+function subscribeTheme(onStoreChange: () => void) {
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === STORAGE_KEY) onStoreChange();
+  };
+  window.addEventListener("storage", onStorage);
+  window.addEventListener("treadure-theme-change", onStoreChange);
+  return () => {
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener("treadure-theme-change", onStoreChange);
+  };
+}
 
-  useEffect(() => {
-    const initial = readStoredTheme();
-    document.documentElement.setAttribute("data-theme", initial);
-    // Defer state sync to avoid cascading render lint on mount bootstrap
-    queueMicrotask(() => {
-      setThemeState(initial);
-      setMounted(true);
-    });
-  }, []);
+function applyTheme(next: Theme) {
+  document.documentElement.setAttribute("data-theme", next);
+  window.localStorage.setItem(STORAGE_KEY, next);
+  window.dispatchEvent(new Event("treadure-theme-change"));
+}
+
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const theme = useSyncExternalStore(subscribeTheme, readTheme, () => "light" as Theme);
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
-    document.documentElement.setAttribute("data-theme", next);
-    window.localStorage.setItem("treadure-theme", next);
+    applyTheme(next);
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === "light" ? "dark" : "light");
-  }, [setTheme, theme]);
+    applyTheme(theme === "light" ? "dark" : "light");
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
-      <div className={mounted ? undefined : "invisible"}>{children}</div>
+      {children}
     </ThemeContext.Provider>
   );
 }

@@ -43,6 +43,13 @@ export default function RootLayout({
       className={`${cinzel.variable} ${literata.variable} ${caveat.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('treadure-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-full font-[family-name:var(--font-literata)]">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
