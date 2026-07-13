@@ -13,19 +13,22 @@ type MapLandingProps = {
 
 export function MapLanding({ onSelect, onStart }: MapLandingProps) {
   return (
-    <section className="relative flex min-h-full flex-col overflow-hidden">
-      <div className="absolute inset-0">
+    <section className="relative flex h-[100svh] flex-col overflow-hidden md:h-screen">
+      <div
+        className="absolute inset-0"
+        style={{ background: "var(--map-water)" }}
+      >
         <VintageMap onSelect={onSelect} />
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, transparent 35%, color-mix(in srgb, var(--parchment) 55%, transparent) 100%)",
+              "radial-gradient(ellipse at center, transparent 30%, color-mix(in srgb, var(--parchment) 45%, transparent) 100%)",
           }}
         />
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-between px-4 py-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 flex h-full flex-col justify-between px-4 py-6 sm:px-8 lg:px-12">
         <motion.div
           initial={{ y: -24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -45,12 +48,12 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.25, duration: 0.75 }}
-          className="mx-auto mb-8 max-w-xl text-center sm:mb-12"
+          className="mx-auto mb-4 max-w-lg text-center sm:mb-8"
         >
-          <div className="quest-card rounded-2xl px-5 py-6 sm:px-8 sm:py-8">
+          <div className="quest-card rounded-2xl px-5 py-5 sm:px-7 sm:py-7">
             <Typewriter
               text={profile.headline}
-              className="font-[family-name:var(--font-cinzel)] text-2xl font-bold leading-snug tracking-wide text-[color:var(--parchment-ink)] sm:text-3xl md:text-4xl"
+              className="font-[family-name:var(--font-cinzel)] text-xl font-bold leading-snug tracking-wide text-[color:var(--parchment-ink)] sm:text-3xl md:text-[2rem]"
               speed={32}
             />
             <p className="mt-3 text-sm leading-relaxed text-[color:var(--parchment-muted)] sm:text-base">

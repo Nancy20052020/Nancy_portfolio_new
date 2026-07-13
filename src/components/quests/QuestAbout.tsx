@@ -83,16 +83,29 @@ export function QuestAbout({ onNavigate }: Props) {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="relative mx-auto w-full max-w-xs"
         >
-          <div className="float-decor rotate-2 rounded-sm bg-[color:var(--surface-elevated)] p-3 shadow-xl">
-            <div
-              className="aspect-[4/5] rounded-sm"
-              style={{
-                background:
-                  "linear-gradient(160deg, #f0b27a 0%, #c0392b 35%, #5b2d91 70%, #1a2233 100%)",
-              }}
+          <div className="float-decor relative rotate-2 rounded-sm bg-[color:var(--surface-elevated)] p-3 shadow-xl">
+            <svg
+              viewBox="0 0 160 200"
+              className="aspect-[4/5] w-full rounded-sm"
               role="img"
-              aria-label="Illustrated portrait placeholder of Nancy watching a sunset"
-            />
+              aria-label="Illustrated portrait of Nancy watching a sunset"
+            >
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#f6c28b" />
+                  <stop offset="45%" stopColor="#e07a5f" />
+                  <stop offset="75%" stopColor="#6b3fa0" />
+                  <stop offset="100%" stopColor="#1a2233" />
+                </linearGradient>
+              </defs>
+              <rect width="160" height="200" fill="url(#sky)" />
+              <circle cx="118" cy="72" r="18" fill="#ffd27a" opacity="0.9" />
+              <path d="M0,150 Q40,130 80,148 T160,142 L160,200 L0,200 Z" fill="#3d2a1f" opacity="0.85" />
+              <path d="M55,148 C58,120 70,110 78,110 C86,110 94,122 96,148 Z" fill="#1f1520" />
+              <circle cx="78" cy="98" r="10" fill="#2a1c24" />
+              <path d="M20,40 Q35,28 48,42" fill="none" stroke="#fff8e6" strokeWidth="1.2" opacity="0.35" />
+              <path d="M110,38 Q125,26 138,40" fill="none" stroke="#fff8e6" strokeWidth="1.2" opacity="0.3" />
+            </svg>
             <p className="mt-3 text-center font-[family-name:var(--font-caveat)] text-xl text-[color:var(--parchment-ink)]">
               Field notes · {profile.name}
             </p>

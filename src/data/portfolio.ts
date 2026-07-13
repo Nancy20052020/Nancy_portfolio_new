@@ -20,7 +20,7 @@ export const QUESTS: {
     label: "About Me",
     questNumber: 1,
     pinColor: "#6b3fa0",
-    mapPosition: { x: 22, y: 38 },
+    mapPosition: { x: 20, y: 34 },
     description: "The castle of origins",
   },
   {
@@ -28,7 +28,7 @@ export const QUESTS: {
     label: "Skills",
     questNumber: 2,
     pinColor: "#2f6fed",
-    mapPosition: { x: 72, y: 28 },
+    mapPosition: { x: 74, y: 24 },
     description: "Crystal peak arsenal",
   },
   {
@@ -36,7 +36,7 @@ export const QUESTS: {
     label: "Projects",
     questNumber: 3,
     pinColor: "#2f8f5b",
-    mapPosition: { x: 58, y: 62 },
+    mapPosition: { x: 62, y: 58 },
     description: "Ruins of creation",
   },
   {
@@ -44,7 +44,7 @@ export const QUESTS: {
     label: "Experience",
     questNumber: 4,
     pinColor: "#c9a227",
-    mapPosition: { x: 34, y: 68 },
+    mapPosition: { x: 14, y: 58 },
     description: "Harbor of voyages",
   },
   {
@@ -52,7 +52,7 @@ export const QUESTS: {
     label: "Achievements",
     questNumber: 5,
     pinColor: "#d97706",
-    mapPosition: { x: 78, y: 48 },
+    mapPosition: { x: 82, y: 46 },
     description: "Ancient relic grounds",
   },
   {
@@ -60,7 +60,7 @@ export const QUESTS: {
     label: "Contact",
     questNumber: 6,
     pinColor: "#c45c5c",
-    mapPosition: { x: 48, y: 82 },
+    mapPosition: { x: 88, y: 72 },
     description: "The lighthouse signal",
   },
 ];
