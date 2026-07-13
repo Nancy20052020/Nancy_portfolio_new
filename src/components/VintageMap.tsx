@@ -8,7 +8,18 @@ type VintageMapProps = {
   activeId?: QuestId;
 };
 
+/** Smooth path through quest landmarks (percent coords) */
+function buildTrailPath() {
+  if (QUESTS.length === 0) return "";
+  const [first, ...rest] = QUESTS;
+  return `M ${first.mapPosition.x} ${first.mapPosition.y} ${rest
+    .map((q) => `L ${q.mapPosition.x} ${q.mapPosition.y}`)
+    .join(" ")}`;
+}
+
 export function VintageMap({ onSelect, activeId }: VintageMapProps) {
+  const trail = buildTrailPath();
+
   return (
     <div className="relative h-full w-full overflow-hidden">
       <picture>
@@ -21,6 +32,25 @@ export function VintageMap({ onSelect, activeId }: VintageMapProps) {
         />
       </picture>
 
+      <div className="map-night-wash" aria-hidden />
+
+      <svg
+        className="pointer-events-none absolute inset-0 z-[2] h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <path
+          className="map-path"
+          d={trail}
+          fill="none"
+          stroke="color-mix(in srgb, var(--gold) 70%, transparent)"
+          strokeWidth="0.35"
+          vectorEffect="non-scaling-stroke"
+          opacity="0.7"
+        />
+      </svg>
+
       <span className="mystical-mist left-[8%] top-[14%] h-28 w-28 opacity-50" aria-hidden />
       <span
         className="mystical-mist right-[12%] top-[22%] h-36 w-36 opacity-45"
@@ -29,6 +59,9 @@ export function VintageMap({ onSelect, activeId }: VintageMapProps) {
       />
       <span className="mystical-spark left-[28%] top-[18%]" aria-hidden />
       <span className="mystical-spark right-[26%] bottom-[28%]" style={{ animationDelay: "1.3s" }} aria-hidden />
+      <span className="night-star left-[15%] top-[40%]" style={{ animationDelay: "0.5s" }} aria-hidden />
+      <span className="night-star right-[20%] top-[55%]" style={{ animationDelay: "1.8s" }} aria-hidden />
+      <span className="night-star left-[48%] top-[12%]" style={{ animationDelay: "2.4s" }} aria-hidden />
 
       {QUESTS.map((quest, index) => {
         const active = activeId === quest.id;

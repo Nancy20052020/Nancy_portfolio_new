@@ -6,16 +6,10 @@ import { nextQuest } from "@/components/QuestChrome";
 import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { skills, QUEST_ORDER, type QuestId } from "@/data/portfolio";
+import { ink } from "@/lib/questInk";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
-};
-
-const ink = {
-  title: "#1f140c",
-  body: "#3a2a1c",
-  muted: "#5a4532",
-  accent: "#5b2d91",
 };
 
 const categories = [
@@ -106,18 +100,16 @@ export function QuestSkills({ onNavigate }: Props) {
                 </h4>
               </div>
               <ul className="flex flex-col gap-2">
-                {cat.items.map((item) => (
-                  <li
+                {cat.items.map((item, j) => (
+                  <motion.li
                     key={item}
-                    className="rounded-lg px-2.5 py-1.5 text-sm"
-                    style={{
-                      color: ink.body,
-                      background: "rgba(255, 248, 230, 0.55)",
-                      border: "1px solid rgba(90, 60, 30, 0.12)",
-                    }}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.08 * i + 0.04 * j }}
+                    className="quest-chip rounded-lg px-2.5 py-1.5 text-sm"
                   >
                     {item}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.article>

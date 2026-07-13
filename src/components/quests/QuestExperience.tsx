@@ -7,16 +7,10 @@ import { nextQuest } from "@/components/QuestChrome";
 import { QuestPageHeader } from "@/components/QuestPageHeader";
 import { Typewriter } from "@/components/Typewriter";
 import { experience, QUEST_ORDER, type QuestId } from "@/data/portfolio";
+import { ink } from "@/lib/questInk";
 
 type Props = {
   onNavigate: (id: QuestId) => void;
-};
-
-const ink = {
-  title: "#1f140c",
-  body: "#3a2a1c",
-  muted: "#5a4532",
-  accent: "#5b2d91",
 };
 
 export function QuestExperience({ onNavigate }: Props) {
@@ -35,6 +29,7 @@ export function QuestExperience({ onNavigate }: Props) {
             draggable={false}
           />
         </picture>
+        <div className="quest-bg-wash" aria-hidden />
         <span className="mystical-mist left-[8%] top-[18%] h-28 w-28" aria-hidden />
         <span className="mystical-mist right-[12%] bottom-[22%] h-36 w-36" style={{ animationDelay: "1.4s" }} aria-hidden />
         <span className="mystical-spark left-[20%] top-[30%]" style={{ animationDelay: "0.4s" }} aria-hidden />

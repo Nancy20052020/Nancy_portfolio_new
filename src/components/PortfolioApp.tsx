@@ -103,7 +103,7 @@ export function PortfolioApp() {
             <Menu size={18} />
             Menu
           </button>
-          <p className="font-[family-name:var(--font-cinzel)] text-sm font-semibold tracking-wide text-[#1f140c]">
+          <p className="font-[family-name:var(--font-cinzel)] text-sm font-semibold tracking-wide text-[color:var(--quest-ink-title)]">
             Nancy Verma
           </p>
         </div>
