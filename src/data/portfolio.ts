@@ -133,6 +133,8 @@ export const projects: {
   tech: string[];
   links: ProjectLinks;
   accent: string;
+  postcard: string;
+  layout: "center" | "lower";
 }[] = [
   {
     title: "AutEye",
@@ -143,9 +145,11 @@ export const projects: {
       github: "https://github.com/Nancy20052020",
     },
     accent: "#6b3fa0",
+    postcard: "/quest/project-auteye.png",
+    layout: "center",
   },
   {
-    title: "Multi PDF Bot",
+    title: "PrepPilot",
     description:
       "Conversational Q&A over multiple PDFs with OpenAI GPT-3.5 and ElevenLabs TTS for spoken answers.",
     tech: ["Python", "Flask", "OpenAI", "ElevenLabs"],
@@ -153,28 +157,34 @@ export const projects: {
       github: "https://github.com/Nancy20052020",
     },
     accent: "#2f6fed",
+    postcard: "/quest/project-preppilot.png",
+    layout: "center",
   },
   {
-    title: "Earth Lens",
+    title: "Drought Sentinel",
     description:
-      "Remote sensing analysis on Google Earth Engine — satellite imagery workflows from the Indian Truth Academy GIS internship.",
+      "Remote sensing drought analysis on Google Earth Engine — satellite imagery workflows from the Indian Truth Academy GIS internship (P1).",
     tech: ["GEE", "Remote Sensing", "GIS", "JS"],
     links: {
       earthEngine: "https://code.earthengine.google.com/1f478591ab593ffe9bcde0a27be6fc48",
       drive: "https://drive.google.com/file/d/1RZha6dBhiwGYqZHKaGM_WiZF5jK6NnmV/view?usp=drivesdk",
     },
     accent: "#2f8f5b",
+    postcard: "/quest/project-drought.png",
+    layout: "lower",
   },
   {
-    title: "Terra Trace",
+    title: "Urban Pulse",
     description:
-      "GIS & Earth Engine exploration project mapping environmental signals — companion quest from the remote sensing internship.",
+      "Urban GIS & Earth Engine exploration mapping city signals — companion quest from the remote sensing internship (P2).",
     tech: ["GEE", "GIS", "Python", "Mapping"],
     links: {
       earthEngine: "https://code.earthengine.google.com/170c492464d96e8cc66d885f25702049",
       drive: "https://drive.google.com/file/d/1TFvuLC2Rm8a2FTUSVplmug-8RdcGejW3/view?usp=drivesdk",
     },
     accent: "#c9a227",
+    postcard: "/quest/project-urban.png",
+    layout: "lower",
   },
 ];
 
