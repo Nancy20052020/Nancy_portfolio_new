@@ -81,7 +81,7 @@ export const QUEST_ORDER: QuestId[] = [
   "contact",
 ];
 
-/** Geographic trail order for the animated dotted path on the atlas */
+/** Geographic trail order kept for optional future use */
 export const MAP_PATH_ORDER: Exclude<QuestId, "map">[] = [
   "about",
   "skills",
@@ -93,8 +93,8 @@ export const MAP_PATH_ORDER: Exclude<QuestId, "map">[] = [
 
 export const profile = {
   name: "Nancy Verma",
-  brand: "TREADURE",
-  tagline: "Quest to Create",
+  brand: "Nancy Verma",
+  tagline: "Portfolio",
   email: "nancy2005nov@gmail.com",
   phone: "+91 9821657484",
   location: "Jaipur, India",

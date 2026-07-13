@@ -20,12 +20,12 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
         <VintageMap onSelect={onSelect} />
       </div>
 
-      {/* Brand banner — top left only, no competing overlays */}
+      {/* Brand banner — top left */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.65 }}
-        className="pointer-events-none absolute left-3 top-3 z-20 w-[6.75rem] sm:left-5 sm:top-5 sm:w-[9rem] md:w-[10.5rem]"
+        className="pointer-events-none absolute left-3 top-3 z-20 w-[7.25rem] sm:left-5 sm:top-5 sm:w-[9.5rem] md:w-[11rem]"
       >
         <div className="relative">
           <Image
@@ -37,15 +37,12 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
             priority
             unoptimized
           />
-          <div className="absolute inset-x-[14%] top-[17%] flex flex-col items-center text-center text-[#fff8e6]">
-            <p className="font-[family-name:var(--font-cinzel)] text-[0.65rem] font-bold leading-none tracking-[0.12em] sm:text-[0.8rem] md:text-[0.95rem]">
+          <div className="absolute inset-x-[12%] top-[16%] flex flex-col items-center text-center text-[#fff8e6]">
+            <p className="font-[family-name:var(--font-cinzel)] text-[0.7rem] font-bold leading-tight tracking-[0.03em] sm:text-[0.85rem] md:text-[0.95rem]">
               {profile.brand}
             </p>
-            <p className="mt-1 text-[0.5rem] leading-tight opacity-90 sm:text-[0.65rem]">
+            <p className="mt-1 text-[0.55rem] leading-tight opacity-95 sm:text-[0.7rem]">
               {profile.tagline}
-            </p>
-            <p className="mt-1.5 font-[family-name:var(--font-caveat)] text-[0.85rem] leading-none text-[color:var(--gold-bright)] sm:text-base md:text-lg">
-              {profile.name}
             </p>
           </div>
         </div>
@@ -84,7 +81,7 @@ export function MapLanding({ onSelect, onStart }: MapLandingProps) {
               speed={28}
             />
             <p className="mt-1 hidden text-xs text-[color:var(--parchment-muted)] sm:block">
-              Follow the dotted trail — or tap any pin to open that quest.
+              Tap any glowing pin on the map to open that section.
             </p>
           </div>
           <button type="button" className="btn-quest shrink-0 !min-h-10 !px-4 !py-2 text-sm" onClick={onStart}>

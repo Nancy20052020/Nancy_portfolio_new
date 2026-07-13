@@ -16,7 +16,7 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import { QUESTS, type QuestId } from "@/data/portfolio";
+import { QUESTS, profile, type QuestId } from "@/data/portfolio";
 import { useTheme } from "@/components/ThemeProvider";
 
 const ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
@@ -54,7 +54,7 @@ export function Sidebar({
       {mobileOpen && (
         <button
           type="button"
-          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          className="fixed inset-0 z-40 bg-black/45 md:hidden"
           aria-label="Close navigation overlay"
           onClick={onCloseMobile}
         />
@@ -68,49 +68,52 @@ export function Sidebar({
         }`}
         aria-label="Quest navigation"
       >
-        <div className={`flex items-start gap-2 px-3 pt-4 ${collapsed ? "md:justify-center" : "justify-between"}`}>
-          <div className={`relative ${collapsed ? "md:hidden" : ""} w-[7.5rem] shrink-0`}>
+        <div
+          className={`flex items-start gap-2 px-3 pt-4 ${
+            collapsed ? "md:justify-center" : "justify-between"
+          }`}
+        >
+          <div className={`relative ${collapsed ? "md:hidden" : ""} w-[8rem] shrink-0`}>
             <Image
               src="/quest/banner.png"
-              alt="TREADURE Quest to Create"
+              alt={`${profile.name} Portfolio`}
               width={380}
               height={570}
               className="banner-asset h-auto w-full"
               unoptimized
             />
-            <div className="absolute inset-x-[14%] top-[17%] text-center text-[#fff8e6]">
-              <p className="font-[family-name:var(--font-cinzel)] text-[0.7rem] font-bold tracking-[0.1em]">
-                TREADURE
+            <div className="absolute inset-x-[12%] top-[16%] flex flex-col items-center text-center text-[#fff8e6]">
+              <p className="font-[family-name:var(--font-cinzel)] text-[0.72rem] font-bold leading-tight tracking-[0.04em]">
+                {profile.brand}
               </p>
-              <p className="mt-0.5 text-[0.55rem] opacity-90">Quest to Create</p>
+              <p className="mt-1 text-[0.58rem] leading-tight opacity-95">{profile.tagline}</p>
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <button
-              type="button"
-              className="btn-ghost !min-h-9 !px-2 md:hidden"
-              onClick={onCloseMobile}
-              aria-label="Close menu"
-            >
-              <X size={16} />
-            </button>
-            <button
-              type="button"
-              className="btn-ghost hidden !min-h-9 !px-2 md:inline-flex"
-              onClick={onToggleCollapsed}
-              aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-              aria-expanded={!collapsed}
-            >
-              {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
-            </button>
-          </div>
+          {/* Mobile: close only. Desktop: collapse only. Never both. */}
+          <button
+            type="button"
+            className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-[color:var(--card-border)] bg-[color:var(--surface-elevated)] text-[color:var(--parchment-ink)] md:hidden"
+            onClick={onCloseMobile}
+            aria-label="Close menu"
+          >
+            <X size={18} />
+          </button>
+          <button
+            type="button"
+            className="hidden min-h-10 min-w-10 items-center justify-center rounded-full border border-[color:var(--card-border)] bg-[color:var(--surface-elevated)] text-[color:var(--parchment-ink)] md:inline-flex"
+            onClick={onToggleCollapsed}
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+            aria-expanded={!collapsed}
+          >
+            {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+          </button>
         </div>
 
         {collapsed && (
           <div className="mt-3 hidden justify-center md:flex" aria-hidden>
             <span className="font-[family-name:var(--font-cinzel)] text-[0.65rem] font-bold tracking-widest text-[color:var(--banner)]">
-              TV
+              NV
             </span>
           </div>
         )}
